@@ -30,8 +30,10 @@ func _ready():
 func _process(delta):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		var mouse_pos = get_global_mouse_position()
-		var lookup_color = lookup_image.get_pixelv(mouse_pos)
-		material.set_shader_parameter("selected_color",  Vector4(lookup_color.r8, lookup_color.g8, lookup_color.b8, 255))
-		
-		var province = Game.provinces[map_image.get_pixelv(mouse_pos)]
-		Game.selected_province.emit(province)
+		var color = map_image.get_pixelv(mouse_pos)
+		if color != Color.BLACK:
+			var lookup_color = lookup_image.get_pixelv(mouse_pos)
+			material.set_shader_parameter("selected_color",  Vector4(lookup_color.r8, lookup_color.g8, lookup_color.b8, 255))
+			
+			var province = Game.provinces[color]
+			Game.selected_province.emit(province)
