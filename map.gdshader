@@ -10,7 +10,7 @@ void fragment() {
 	COLOR = texture(color_texture, uv.xy * 255.0 / 256.0 + vec2(0.001953125, 0.001953125));
 	
 	// convert float 0.0-1.0 value to int 0-255 value to then compare
-	uvec4 color = uvec4(uint(255.0 / 1.0 * uv.r), uint(255.0 / 1.0 * uv.g), uint(255.0 / 1.0 * uv.b), 255);
+	uvec4 color = uvec4(uint(round(uv.r * 255.0)), uint(round(uv.g * 255.0)), uint(round(uv.b * 255.0)), 255);
 	if (color == selected_color) {
 		COLOR = mix(COLOR, vec4(1.0, 1.0, 1.0, 1.0), 0.8);
 	}
