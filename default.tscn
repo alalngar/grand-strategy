@@ -7,7 +7,8 @@
 [ext_resource type="Script" path="res://camera.gd" id="5_buw72"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cyl33"]
-font_size = 12
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="World" type="Node2D"]
 
@@ -22,11 +23,14 @@ script = ExtResource("2_n3y1y")
 script = ExtResource("4_ah6qn")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
+custom_minimum_size = Vector2(50, 30)
+offset_right = 70.0
+offset_bottom = 26.0
 label_settings = SubResource("LabelSettings_cyl33")
+vertical_alignment = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
 current = true
 smoothing_speed = 3.0
 script = ExtResource("5_buw72")

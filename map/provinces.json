@@ -1,102 +1,122 @@
 [
 	{
 		"color": [71, 155, 239],
-		"id": 2000,
-		"owner": 0
+		"id": 0,
+		"owner": 0,
+		"population": 0
 	},
 	{
 		"color": [176, 160, 128],
-		"id": 0,
-		"owner": 2
+		"id": 1,
+		"owner": 2,
+		"population": 10000
 	},
 	{
 		"color": [128, 80, 160],
-		"id": 1,
-		"owner": 2
+		"id": 2,
+		"owner": 2,
+		"population": 10000
 	},
 	{
 		"color": [240, 160, 128],
-		"id": 2,
-		"owner": 2
+		"id": 3,
+		"owner": 2,
+		"population": 10000
 	},
 	{
 		"color": [240, 128, 224],
-		"id": 3,
-		"owner": 2
+		"id": 4,
+		"owner": 2,
+		"population": 10000
 	},
 	{
 		"color": [239, 64, 160],
-		"id": 4,
-		"owner": 1
+		"id": 5,
+		"owner": 1,
+		"population": 10000
 	},
 	{
 		"color": [128, 0, 96],
-		"id": 5,
-		"owner": 1
+		"id": 6,
+		"owner": 1,
+		"population": 10000
 	},
 	{
 		"color": [208, 1, 97],
-		"id": 6,
-		"owner": 1
+		"id": 7,
+		"owner": 1,
+		"population": 10000
 	},
 	{
 		"color": [112, 128, 160],
-		"id": 7,
-		"owner": 1
+		"id": 8,
+		"owner": 1,
+		"population": 10000
 	},
 	{
 		"color": [49, 192, 160],
-		"id": 8,
-		"owner": 1
+		"id": 9,
+		"owner": 1,
+		"population": 10000
 	},
 	{
 		"color": [105, 75, 145],
-		"id": 9,
-		"owner": 1
+		"id": 10,
+		"owner": 1,
+		"population": 10000
 	},
 	{
 		"color": [208, 192, 160],
-		"id": 10,
-		"owner": 1
+		"id": 11,
+		"owner": 1,
+		"population": 10000
 	},
 	{
 		"color": [96, 191, 32],
-		"id": 11,
-		"owner": 1
+		"id": 12,
+		"owner": 1,
+		"population": 100
 	},
 	{
 		"color": [17, 1, 160],
-		"id": 12,
-		"owner": 1
+		"id": 13,
+		"owner": 1,
+		"population": 100
 	},
 	{
 		"color": [16, 159, 159],
-		"id": 13,
-		"owner": 1
+		"id": 14,
+		"owner": 1,
+		"population": 100
 	},
 	{
 		"color": [114, 98, 145],
-		"id": 14,
-		"owner": 1
+		"id": 15,
+		"owner": 1,
+		"population": 100
 	},
 	{
 		"color": [128, 224, 97],
-		"id": 15,
-		"owner": 1
+		"id": 16,
+		"owner": 1,
+		"population": 100
 	},
 	{
 		"color": [0, 32, 224],
-		"id": 16,
-		"owner": 1
+		"id": 17,
+		"owner": 1,
+		"population": 100
 	},
 	{
 		"color": [160, 128, 33],
-		"id": 17,
-		"owner": 1
+		"id": 18,
+		"owner": 1,
+		"population": 100
 	},
 	{
 		"color": [17, 224, 33],
-		"id": 18,
-		"owner": 1
+		"id": 19,
+		"owner": 1,
+		"population": 100
 	}
 ]
