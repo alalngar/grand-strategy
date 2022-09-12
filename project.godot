@@ -22,9 +22,9 @@ Data="*res://data.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
-window/size/resizable=false
+window/size/viewport_width=800
+window/size/viewport_height=600
+window/vsync/vsync_mode=0
 
 [input]
 

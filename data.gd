@@ -1,32 +1,41 @@
 extends Node
 
 signal daily_tick()
-
-const TIME_SPEED := 1
-var game_speed_multiplier := 1.0
+signal monthly_tick()
 
 var year := 0
 var month := 0
 var day := 0
-
 var total_days := 388 * 360
 var timer := 0.0
+var time_paused := false
+var time_speed := 1.0
 
 var provinces := {}
 var countries := {}
 
 func _process(delta):
+	if time_paused:
+		return
 	timer += delta
-	if timer > TIME_SPEED * game_speed_multiplier:
+	if timer >= time_speed:
 		timer = 0.0
 		total_days += 1
 		_tick()
-		daily_tick.emit()
 
 func _set_date():
+	var _day = day
+	var _month = month
+	var _year = year
+	
 	day = total_days % 30 + 1
 	month = total_days / 30 % 12 + 1
 	year = total_days / 30 / 12 + 1
+	
+	if _day != day:
+		daily_tick.emit()
+	if _month != month:
+		monthly_tick.emit()
 
 func _tick():
 	_set_date()
@@ -62,7 +71,7 @@ func get_date_extended():
 		11: _month = "November"
 		12: _month = "December"
 	
-	return "%s %s, %d" % [_month, _day, year]
+	return "%s %s %d" % [day, _month, year]
 
 func _set_country():
 	Game.country = countries[2]

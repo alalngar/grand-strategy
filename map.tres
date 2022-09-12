@@ -3,5 +3,5 @@
 [ext_resource type="Shader" path="res://map.gdshader" id="1_vfs4e"]
 
 [resource]
+render_priority = 0
 shader = ExtResource("1_vfs4e")
-selected_color = null

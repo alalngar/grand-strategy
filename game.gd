@@ -5,9 +5,9 @@ signal selected_province(data)
 var country := {}
 
 func _ready():
-	Data.daily_tick.connect(_daily_tick)
+	Data.monthly_tick.connect(_monthly_tick)
 
-func _daily_tick():
+func _monthly_tick():
 	_calc_tax()
 
 func _calc_tax():

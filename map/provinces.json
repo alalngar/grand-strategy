@@ -1,164 +1,38 @@
 [
 	{
-		"color": [104, 189, 255],
+		"color": [0, 0, 0],
 		"id": 0,
 		"owner": 0,
 		"population": -1
 	},
 	{
-		"color": [176, 160, 128],
+		"color": [0, 255, 144],
 		"id": 1,
-		"owner": 2,
-		"population": 10000
+		"owner": 1,
+		"population": 1000
 	},
 	{
-		"color": [128, 80, 160],
+		"color": [76, 255, 0],
 		"id": 2,
-		"owner": 2,
-		"population": 10000
+		"owner": 1,
+		"population": 1000
 	},
 	{
-		"color": [240, 160, 128],
+		"color": [178, 0, 255],
 		"id": 3,
 		"owner": 2,
-		"population": 10000
+		"population": 1000
 	},
 	{
-		"color": [240, 128, 224],
+		"color": [255, 0, 0],
 		"id": 4,
 		"owner": 2,
-		"population": 10000
+		"population": 1000
 	},
 	{
-		"color": [239, 64, 160],
+		"color": [255, 106, 0],
 		"id": 5,
-		"owner": 1,
-		"population": 10000
-	},
-	{
-		"color": [128, 0, 96],
-		"id": 6,
-		"owner": 1,
-		"population": 10000
-	},
-	{
-		"color": [208, 1, 97],
-		"id": 7,
-		"owner": 1,
-		"population": 10000
-	},
-	{
-		"color": [112, 128, 160],
-		"id": 8,
-		"owner": 1,
-		"population": 10000
-	},
-	{
-		"color": [49, 192, 160],
-		"id": 9,
-		"owner": 1,
-		"population": 10000
-	},
-	{
-		"color": [105, 75, 145],
-		"id": 10,
-		"owner": 1,
-		"population": 10000
-	},
-	{
-		"color": [208, 192, 160],
-		"id": 11,
-		"owner": 1,
-		"population": 10000
-	},
-	{
-		"color": [96, 191, 32],
-		"id": 12,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [17, 1, 160],
-		"id": 13,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [16, 159, 159],
-		"id": 14,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [114, 98, 145],
-		"id": 15,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [128, 224, 97],
-		"id": 16,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [0, 32, 224],
-		"id": 17,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [160, 128, 33],
-		"id": 18,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [17, 224, 33],
-		"id": 19,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [208, 128, 33],
-		"id": 20,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [235, 152, 243],
-		"id": 21,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [96, 224, 192],
-		"id": 22,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [96, 96, 128],
-		"id": 23,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [32, 224, 128],
-		"id": 24,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [160, 96, 64],
-		"id": 25,
-		"owner": 1,
-		"population": 100
-	},
-	{
-		"color": [150, 146, 121],
-		"id": 26,
-		"owner": 1,
-		"population": 100
+		"owner": 2,
+		"population": 1000
 	}
 ]
