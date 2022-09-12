@@ -1,9 +1,9 @@
 [
 	{
-		"color": [71, 155, 239],
+		"color": [104, 189, 255],
 		"id": 0,
 		"owner": 0,
-		"population": 0
+		"population": -1
 	},
 	{
 		"color": [176, 160, 128],
@@ -116,6 +116,48 @@
 	{
 		"color": [17, 224, 33],
 		"id": 19,
+		"owner": 1,
+		"population": 100
+	},
+	{
+		"color": [208, 128, 33],
+		"id": 20,
+		"owner": 1,
+		"population": 100
+	},
+	{
+		"color": [235, 152, 243],
+		"id": 21,
+		"owner": 1,
+		"population": 100
+	},
+	{
+		"color": [96, 224, 192],
+		"id": 22,
+		"owner": 1,
+		"population": 100
+	},
+	{
+		"color": [96, 96, 128],
+		"id": 23,
+		"owner": 1,
+		"population": 100
+	},
+	{
+		"color": [32, 224, 128],
+		"id": 24,
+		"owner": 1,
+		"population": 100
+	},
+	{
+		"color": [160, 96, 64],
+		"id": 25,
+		"owner": 1,
+		"population": 100
+	},
+	{
+		"color": [150, 146, 121],
+		"id": 26,
 		"owner": 1,
 		"population": 100
 	}

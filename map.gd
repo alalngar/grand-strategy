@@ -6,6 +6,7 @@ extends Sprite2D
 var color_texture
 
 func _ready():
+	Game.selected_province.connect(_update_selection)
 	lookup_image.create(texture.get_width(), texture.get_height(), false, Image.FORMAT_RGB8)
 	color_image.create(256, 256, false, Image.FORMAT_RGB8)
 	
@@ -23,6 +24,14 @@ func _ready():
 	
 	_refresh_map()
 
+func _update_selection(data):
+	if data == null:
+		material.set_shader_parameter("selected_color", Vector4(0, 0, 0, 0))
+		return
+	var mouse_pos := get_global_mouse_position()
+	var lookup_color := lookup_image.get_pixelv(mouse_pos)
+	material.set_shader_parameter("selected_color", Vector4(lookup_color.r8, lookup_color.g8, lookup_color.b8, 255))
+
 func _refresh_map():
 	for key in Data.provinces:
 		var province = Data.provinces[key]
@@ -31,19 +40,20 @@ func _refresh_map():
 	
 	color_texture.update(color_image)
 
-func _process(delta):
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		var mouse_pos := get_global_mouse_position()
-		var color := map_image.get_pixelv(mouse_pos)
-		if color != Color.BLACK:
-			var lookup_color := lookup_image.get_pixelv(mouse_pos)
-			material.set_shader_parameter("selected_color", Vector4(lookup_color.r8, lookup_color.g8, lookup_color.b8, 255))
-			
-			var province = Data.provinces[color]
-			Game.selected_province.emit(province)
-	elif Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		var mouse_pos := get_global_mouse_position()
-		var color := map_image.get_pixelv(mouse_pos)
-		if color != Color.BLACK:
-			Data.provinces[color].owner = int(Input.is_key_pressed(KEY_CTRL)) + 2
-			_refresh_map()
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			var mouse_pos := get_global_mouse_position()
+			var color := map_image.get_pixelv(mouse_pos)
+			if color != Color.BLACK:
+				var province = Data.provinces[color]
+				Game.selected_province.emit(province)
+		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
+			var mouse_pos := get_global_mouse_position()
+			var color := map_image.get_pixelv(mouse_pos)
+			if color != Color.BLACK:
+				Data.provinces[color].owner = int(Input.is_key_pressed(KEY_CTRL)) + 2
+				_refresh_map()
+	if event is InputEventKey:
+		if event.keycode == KEY_ESCAPE and event.pressed:
+			Game.selected_province.emit(null)

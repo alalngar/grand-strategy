@@ -3,6 +3,7 @@ extends Node
 signal daily_tick()
 
 const TIME_SPEED := 1
+var game_speed_multiplier := 1.0
 
 var year := 0
 var month := 0
@@ -16,7 +17,7 @@ var countries := {}
 
 func _process(delta):
 	timer += delta
-	if timer > TIME_SPEED:
+	if timer > TIME_SPEED * game_speed_multiplier:
 		timer = 0.0
 		total_days += 1
 		_tick()

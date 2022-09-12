@@ -1,9 +1,28 @@
 key,en
-p0,Northern Ireland
-p1,Western Ireland
-p2,Eastern Ireland
-p3,Irish Sea
-p4,Irish Sea
-p5,Irish Sea
-p6,Irish Sea
-p7,Irish Sea
+p0,Ocean
+p1,Spain
+p2,Algeria
+p3,West France
+p4,South France
+p5,North France
+p6,Benelux
+p7,Switzerland
+p8,North Italy
+p9,South Italy
+p10,West Germany
+p11,South Germany
+p12,East Germany
+p13,West Austria
+p14,East Austria
+p15,South Russia
+p16,Middle Russia
+p17,North Russia
+p18,Scandinavia
+p19,South Austria
+p20,Balkan Peninsula
+p21,Turkey
+p22,South England
+p23,Central England
+p24,North England
+p25,North Ireland
+p26,South Ireland
