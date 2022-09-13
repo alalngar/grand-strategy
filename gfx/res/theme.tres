@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://drka4h4teonns"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://drka4h4teonns"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfhpu"]
 bg_color = Color(0, 0, 0, 0.588235)
@@ -16,6 +16,17 @@ border_width_bottom = 1
 anti_aliasing = false
 anti_aliasing_size = 10.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ueycx"]
+bg_color = Color(1, 1, 1, 0.784314)
+corner_detail = 1
+expand_margin_left = 4.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqqu3"]
+bg_color = Color(0, 0, 0, 0.588235)
+corner_detail = 1
+expand_margin_left = 4.0
+
 [resource]
 Button/styles/disabled = SubResource("StyleBoxFlat_dfhpu")
 Button/styles/focus = SubResource("StyleBoxFlat_dfhpu")
@@ -25,3 +36,8 @@ Button/styles/pressed = SubResource("StyleBoxFlat_dfhpu")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 4
 Panel/styles/panel = SubResource("StyleBoxFlat_i0pg0")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_ueycx")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_ueycx")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_ueycx")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_eqqu3")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_eqqu3")

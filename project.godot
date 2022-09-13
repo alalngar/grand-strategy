@@ -51,7 +51,7 @@ move_down={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://localization/provinces.en.translation")
+locale/translations=PackedStringArray("res://localization/provinces.en.translation", "res://localization/buildings.en.translation")
 
 [rendering]
 

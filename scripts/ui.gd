@@ -1,9 +1,14 @@
 extends CanvasLayer
 
+@onready var bb_scene := preload("res://building_button.tscn")
+
 @onready var prov_panel := $UI/ProvPanel
 @onready var prov_close = $UI/ProvPanel/Close
 @onready var prov_name := $UI/ProvPanel/VB/ProvName
 @onready var prov_pop := $UI/ProvPanel/VB/PopValue
+@onready var prov_build_open := $UI/ProvPanel/Buildings
+@onready var prov_build_panel := $UI/ProvPanel/BuildPanel
+@onready var prov_build_cont := $UI/ProvPanel/BuildPanel/SC/VB
 
 @onready var info_treasury := $UI/InfoPanel/MC/HB/VB1/HB/Gold
 @onready var info_income := $UI/InfoPanel/MC/HB/VB1/Income
@@ -23,6 +28,17 @@ func _ready():
 	time_decrease.pressed.connect(_decrease_speed)
 	time_pause.pressed.connect(_pause_timer)
 	prov_close.pressed.connect(_deselect_province)
+	prov_build_open.pressed.connect(_open_buildings_panel)
+	
+	for id in Data.buildings:
+		var building = Data.buildings[id]
+		if building == null: continue
+		var scene := bb_scene.instantiate()
+		# todo: dont rely on get_child
+		scene.get_child(1).text = "x%d " % building.cost
+		scene.get_child(2).text = tr("b%d" % building.id)
+		scene.pressed.connect(_build_building.bind(building.id))
+		prov_build_cont.add_child(scene)
 
 func _process(delta):
 	time_date.text = Data.get_date_extended()
@@ -39,7 +55,7 @@ func _selected_province(data):
 	prov_panel.visible = false if data == null else true
 
 func _deselect_province():
-	Game.province_selected.emit(null)	
+	Game.province_selected.emit(null)
 
 func _update_province_panel():
 	if Game.selected_province:
@@ -57,5 +73,8 @@ func _decrease_speed():
 	Data.time_speed = clamp(Data.time_speed + 0.2, 0.0, 1.0)
 
 func _build_building(id):
-	var building = Data.buildings[id]
-	Game.build_buildings.emit(building)
+	Game.build_building.emit(Data.buildings[id])
+
+func _open_buildings_panel():
+	prov_build_open.text = "+" if prov_build_panel.visible else "-" 
+	prov_build_panel.visible = !prov_build_panel.visible
