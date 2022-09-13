@@ -9,7 +9,7 @@ var month := 0
 var day := 0
 var total_days := 388 * 360
 var timer := 0.0
-var time_paused := false
+var time_paused := true
 var time_speed := 1.0
 
 var provinces := {}
@@ -102,11 +102,9 @@ func _ready():
 		data.tag = str(country.tag)
 		data.provinces = []
 		data.treasury = 0
-		data.flag = load("res://gfx/flags/" + country.tag + ".jpg")
+		data.flag = load("res://gfx/flags/%s.png" % country.tag)
 		if data.flag == null:
-			print("Failed to load flag of tag " + country.tag)
-		else:
-			print("Loaded" + country.tag + "Flag")
+			data.flag = load("res://gfx/flags/default.png")
 		for key in provinces:
 			var province = provinces[key]
 			if province.owner == data.tag:
