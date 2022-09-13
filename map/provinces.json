@@ -2,37 +2,37 @@
 	{
 		"color": [0, 0, 0],
 		"id": 0,
-		"owner": 0,
+		"owner": "OCE",
 		"population": -1
 	},
 	{
 		"color": [0, 255, 144],
 		"id": 1,
-		"owner": 1,
+		"owner": "IRE",
 		"population": 1000
 	},
 	{
 		"color": [76, 255, 0],
 		"id": 2,
-		"owner": 1,
+		"owner": "IRE",
 		"population": 1000
 	},
 	{
 		"color": [178, 0, 255],
 		"id": 3,
-		"owner": 2,
+		"owner": "ENG",
 		"population": 1000
 	},
 	{
 		"color": [255, 0, 0],
 		"id": 4,
-		"owner": 2,
+		"owner": "ENG",
 		"population": 1000
 	},
 	{
 		"color": [255, 106, 0],
 		"id": 5,
-		"owner": 2,
-		"population": 1000
+		"owner": "ENG",
+		"population": 10000
 	}
 ]

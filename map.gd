@@ -55,7 +55,10 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			var color := map_image.get_pixelv(mouse_pos)
 			if color != Color.BLACK:
-				Data.provinces[color].owner = int(Input.is_key_pressed(KEY_CTRL)) + 1
+				if Input.is_key_pressed(KEY_CTRL):
+					Data.provinces[color].owner = Game.country.tag
+				else:
+					Game.country = Data.countries[Data.provinces[color].owner]
 				_refresh_map()
 	if event is InputEventKey:
 		if event.keycode == KEY_ESCAPE and event.pressed:

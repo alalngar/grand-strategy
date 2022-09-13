@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4a33ep2tkxj4"]
+[gd_scene load_steps=10 format=3 uid="uid://b4a33ep2tkxj4"]
 
 [ext_resource type="Shader" path="res://map.gdshader" id="1_nikx4"]
 [ext_resource type="Script" path="res://map.gd" id="2_n3y1y"]
@@ -12,13 +12,9 @@
 shader = ExtResource("1_nikx4")
 selected_color = null
 
-[sub_resource type="LabelSettings" id="LabelSettings_xcty2"]
-line_spacing = 0.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_58buu"]
-line_spacing = 0.0
+[sub_resource type="LabelSettings" id="LabelSettings_1bvhc"]
 font_size = 12
-font_color = Color(0.698039, 0.698039, 0.698039, 1)
+font_color = Color(1, 1, 1, 0.588235)
 
 [node name="World" type="Node2D"]
 
@@ -87,50 +83,59 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer"]
 layout_mode = 2
-offset_right = 293.0
+offset_right = 300.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="CountryName" type="Label" parent="CanvasLayer/Control/InfoPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+offset_right = 50.0
+offset_bottom = 50.0
+text = "IRE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer/HBoxContainer"]
 layout_mode = 2
-offset_right = 65.0
+offset_left = 54.0
+offset_right = 119.0
 offset_bottom = 50.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 offset_right = 65.0
-offset_bottom = 24.0
+offset_bottom = 26.0
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/InfoPanel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 offset_right = 24.0
-offset_bottom = 24.0
+offset_bottom = 26.0
 texture = ExtResource("7_ty4cc")
 
 [node name="Money" type="Label" parent="CanvasLayer/Control/InfoPanel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 offset_left = 28.0
 offset_right = 65.0
-offset_bottom = 23.0
+offset_bottom = 26.0
 text = "1000"
-label_settings = SubResource("LabelSettings_xcty2")
 vertical_alignment = 1
 
 [node name="Income" type="Label" parent="CanvasLayer/Control/InfoPanel/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-offset_top = 28.0
+offset_top = 30.0
 offset_right = 65.0
-offset_bottom = 45.0
-text = "+0 Gold
-"
-label_settings = SubResource("LabelSettings_58buu")
+offset_bottom = 50.0
+text = "+1 Gold"
+label_settings = SubResource("LabelSettings_1bvhc")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TimePanel" type="Panel" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -189,20 +194,6 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 text = ">"
-
-[node name="GameSpeed" type="Label" parent="CanvasLayer/Control/TimePanel/HBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-offset_left = 60.0
-offset_top = 5.0
-offset_right = 90.0
-offset_bottom = 31.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "1.0"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Date" type="Label" parent="CanvasLayer/Control/TimePanel"]
 custom_minimum_size = Vector2(160, 36)

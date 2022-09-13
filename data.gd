@@ -2,6 +2,7 @@ extends Node
 
 signal daily_tick()
 signal monthly_tick()
+signal yearly_tick()
 
 var year := 0
 var month := 0
@@ -36,6 +37,8 @@ func _set_date():
 		daily_tick.emit()
 	if _month != month:
 		monthly_tick.emit()
+	if _year != year:
+		yearly_tick.emit()
 
 func _tick():
 	_set_date()
@@ -44,18 +47,6 @@ func get_date():
 	return "%d-%d-%d" % [year, month, day]
 
 func get_date_extended():
-	var _day = str(day)
-	if _day.ends_with("11") or _day.ends_with("12") or _day.ends_with("13"):
-		_day += "th"
-	elif _day.ends_with("1"):
-		_day += "st"
-	elif _day.ends_with("2"):
-		_day += "nd"
-	elif _day.ends_with("3"):
-		_day += "rd"
-	else:
-		_day += "th"
-	
 	var _month = "Month"
 	match month:
 		1 : _month = "January"
@@ -73,9 +64,6 @@ func get_date_extended():
 	
 	return "%s %s %d" % [day, _month, year]
 
-func _set_country():
-	Game.country = countries[2]
-
 func _ready():
 	var file := File.new()
 	
@@ -91,21 +79,22 @@ func _ready():
 		var data := {}
 		data.color = Color8(int(province.color[0]), int(province.color[1]), int(province.color[2]))
 		data.id = int(province.id)
-		data.owner = int(province.owner)
-		data.population = int(province.population)
+		data.owner = str(province.owner)
+		data.population = float(province.population)
 		provinces[data.color] = data
 	
 	for country in countries_json:
 		var data := {}
 		data.color = Color8(int(country.color[0]), int(country.color[1]), int(country.color[2]))
-		data.id = int(country.id)
+		data.tag = str(country.tag)
 		data.provinces = []
 		data.treasury = 0
 		for key in provinces:
 			var province = provinces[key]
-			if province.owner == data.id:
+			if province.owner == data.tag:
 				data.provinces.append(province)
-		countries[data.id] = data
+		countries[data.tag] = data
 	
-	_set_country()
+	Game.country = countries["IRE"]
+	
 	_set_date()
