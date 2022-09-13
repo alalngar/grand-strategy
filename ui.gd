@@ -35,11 +35,9 @@ func _process(delta):
 	income.text = "+%.2f Gold" % Game.last_monthly_income if Game.last_monthly_income >= 0.0 else "-%.2f Gold" % Game.last_monthly_income
 	total_population.text = str(ceil(Game.total_population))
 	monthly_population.text = "(+%.0f)" % Game.monthly_population
-	_update_province_panel()
-	_load_flag()
-
-func _load_flag():
 	country.texture = Game.country.flag
+	_update_province_panel()
+	
 
 func _selected_province(data):
 	province_panel.visible = false if data == null else true
