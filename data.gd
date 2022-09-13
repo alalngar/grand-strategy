@@ -14,6 +14,7 @@ var time_speed := 1.0
 
 var provinces := {}
 var countries := {}
+var buildings := {}
 
 func _process(delta):
 	if time_paused:
@@ -75,12 +76,24 @@ func _ready():
 	var countries_json = JSON.parse_string(file.get_as_text())
 	file.close()
 	
+	file.open("res://common/buildings.json", File.READ)
+	var buildings_json = JSON.parse_string(file.get_as_text())
+	file.close()
+	
+	for building in buildings_json:
+		var data := {}
+		data.id = int(building.id)
+		data.cost = int(building.cost)
+		data.modifiers = building.modifiers
+		buildings[data.id] = data
+	
 	for province in provinces_json:
 		var data := {}
 		data.color = Color8(int(province.color[0]), int(province.color[1]), int(province.color[2]))
 		data.id = int(province.id)
 		data.owner = str(province.owner)
 		data.population = float(province.population)
+		data.buildings = []
 		provinces[data.color] = data
 	
 	for country in countries_json:

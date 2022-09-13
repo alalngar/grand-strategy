@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4a33ep2tkxj4"]
+[gd_scene load_steps=12 format=3 uid="uid://b4a33ep2tkxj4"]
 
 [ext_resource type="Shader" path="res://map.gdshader" id="1_nikx4"]
 [ext_resource type="Script" path="res://map.gd" id="2_n3y1y"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://ui.gd" id="4_ah6qn"]
 [ext_resource type="Theme" uid="uid://xppql8hgbyer" path="res://theme.tres" id="5_n7eje"]
 [ext_resource type="Texture2D" uid="uid://blsifq5rfkpse" path="res://gui/icons/24px-Icon_gold.png" id="7_ty4cc"]
+[ext_resource type="Texture2D" uid="uid://je8jubvx7qmy" path="res://gui/icons/men.png" id="8_4ftlb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fe442"]
 shader = ExtResource("1_nikx4")
@@ -14,7 +15,11 @@ selected_color = null
 
 [sub_resource type="LabelSettings" id="LabelSettings_1bvhc"]
 font_size = 12
-font_color = Color(1, 1, 1, 0.588235)
+font_color = Color(0.711178, 0.7249, 0.714492, 0.588235)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jshwh"]
+font_size = 12
+font_color = Color(0.709804, 0.72549, 0.713726, 0.588235)
 
 [node name="World" type="Node2D"]
 
@@ -42,12 +47,13 @@ grow_vertical = 2
 theme = ExtResource("5_n7eje")
 
 [node name="ProvincePanel" type="Panel" parent="CanvasLayer/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -120.0
-offset_right = 250.0
+offset_top = -200.0
+offset_right = 300.0
 grow_vertical = 0
 size_flags_horizontal = 0
 
@@ -61,7 +67,7 @@ grow_vertical = 2
 
 [node name="ProvinceName" type="Label" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer"]
 layout_mode = 2
-offset_right = 250.0
+offset_right = 300.0
 offset_bottom = 26.0
 text = "Default"
 horizontal_alignment = 1
@@ -69,9 +75,116 @@ horizontal_alignment = 1
 [node name="Population" type="Label" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer"]
 layout_mode = 2
 offset_top = 30.0
-offset_right = 250.0
+offset_right = 300.0
 offset_bottom = 56.0
 text = "Population: 10000"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer"]
+layout_mode = 2
+offset_top = 60.0
+offset_right = 300.0
+offset_bottom = 146.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+offset_right = 74.0
+offset_bottom = 86.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+offset_right = 74.0
+offset_bottom = 26.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+offset_right = 24.0
+offset_bottom = 26.0
+texture = ExtResource("7_ty4cc")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+offset_left = 28.0
+offset_right = 65.0
+offset_bottom = 26.0
+text = "x250"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+offset_top = 30.0
+offset_right = 74.0
+offset_bottom = 56.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+offset_right = 24.0
+offset_bottom = 26.0
+texture = ExtResource("7_ty4cc")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+offset_left = 28.0
+offset_right = 74.0
+offset_bottom = 26.0
+text = "x1000"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+offset_top = 60.0
+offset_right = 74.0
+offset_bottom = 86.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+offset_right = 24.0
+offset_bottom = 26.0
+texture = ExtResource("7_ty4cc")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer3"]
+layout_mode = 2
+offset_left = 28.0
+offset_right = 65.0
+offset_bottom = 26.0
+text = "x500"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer"]
+clip_contents = true
+layout_mode = 2
+offset_left = 78.0
+offset_top = 1.0
+offset_right = 201.0
+offset_bottom = 84.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Building1" type="Button" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 123.0
+offset_bottom = 25.0
+text = "Wood Cutter"
+
+[node name="Building2" type="Button" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 29.0
+offset_right = 123.0
+offset_bottom = 54.0
+text = "Bronze Smelter"
+
+[node name="Building3" type="Button" parent="CanvasLayer/Control/ProvincePanel/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 58.0
+offset_right = 123.0
+offset_bottom = 83.0
+text = "Copper Smelter"
+
+[node name="Button" type="Button" parent="CanvasLayer/Control/ProvincePanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_bottom = 24.0
+grow_horizontal = 0
+text = "X"
 
 [node name="InfoPanel" type="Panel" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(300, 50)
@@ -86,14 +199,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer"]
+[node name="TopBarUI" type="HBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer"]
 layout_mode = 2
 offset_right = 300.0
 offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CountryName" type="Label" parent="CanvasLayer/Control/InfoPanel/MarginContainer/HBoxContainer"]
+[node name="CountryName" type="Label" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 offset_right = 50.0
@@ -102,24 +215,24 @@ text = "IRE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI"]
 layout_mode = 2
 offset_left = 54.0
 offset_right = 119.0
 offset_bottom = 50.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI/VBoxContainer2"]
 layout_mode = 2
 offset_right = 65.0
 offset_bottom = 26.0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/InfoPanel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 offset_right = 24.0
 offset_bottom = 26.0
 texture = ExtResource("7_ty4cc")
 
-[node name="Money" type="Label" parent="CanvasLayer/Control/InfoPanel/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="Money" type="Label" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 offset_left = 28.0
 offset_right = 65.0
@@ -127,13 +240,48 @@ offset_bottom = 26.0
 text = "1000"
 vertical_alignment = 1
 
-[node name="Income" type="Label" parent="CanvasLayer/Control/InfoPanel/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Income" type="Label" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI/VBoxContainer2"]
 layout_mode = 2
 offset_top = 30.0
 offset_right = 65.0
 offset_bottom = 50.0
 text = "+1 Gold"
 label_settings = SubResource("LabelSettings_1bvhc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI"]
+layout_mode = 2
+offset_left = 123.0
+offset_right = 188.0
+offset_bottom = 50.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI/VBoxContainer"]
+layout_mode = 2
+offset_right = 65.0
+offset_bottom = 26.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+offset_right = 24.0
+offset_bottom = 26.0
+texture = ExtResource("8_4ftlb")
+
+[node name="Population" type="Label" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+offset_left = 28.0
+offset_right = 65.0
+offset_bottom = 26.0
+text = "1000"
+vertical_alignment = 1
+
+[node name="PopulationGrowth" type="Label" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI/VBoxContainer"]
+layout_mode = 2
+offset_top = 30.0
+offset_right = 65.0
+offset_bottom = 50.0
+text = "(24k)"
+label_settings = SubResource("LabelSettings_jshwh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -202,3 +350,18 @@ offset_right = 160.0
 offset_bottom = 36.0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="OverlayMenu" type="Panel" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -396.5
+offset_top = -226.5
+offset_right = 396.5
+offset_bottom = 226.5
+grow_horizontal = 2
+grow_vertical = 2

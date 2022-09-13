@@ -8,7 +8,7 @@ var color_texture
 var mouse_pos := Vector2.ZERO
 
 func _ready():
-	Game.selected_province.connect(_update_selection)
+	Game.province_selected.connect(_update_selection)
 	lookup_image.create(texture.get_width(), texture.get_height(), false, Image.FORMAT_RGB8)
 	color_image.create(256, 256, false, Image.FORMAT_RGB8)
 	
@@ -51,7 +51,7 @@ func _input(event):
 			var color := map_image.get_pixelv(mouse_pos)
 			if color != Color.BLACK:
 				var province = Data.provinces[color]
-				Game.selected_province.emit(province)
+				Game.province_selected.emit(province)
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			var color := map_image.get_pixelv(mouse_pos)
 			if color != Color.BLACK:
@@ -62,4 +62,4 @@ func _input(event):
 				_refresh_map()
 	if event is InputEventKey:
 		if event.keycode == KEY_ESCAPE and event.pressed:
-			Game.selected_province.emit(null)
+			Game.province_selected.emit(null)
