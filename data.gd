@@ -102,6 +102,11 @@ func _ready():
 		data.tag = str(country.tag)
 		data.provinces = []
 		data.treasury = 0
+		data.flag = load("res://gfx/flags/" + country.tag + ".jpg")
+		if data.flag == null:
+			print("Failed to load flag of tag " + country.tag)
+		else:
+			print("Loaded" + country.tag + "Flag")
 		for key in provinces:
 			var province = provinces[key]
 			if province.owner == data.tag:

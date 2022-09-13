@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blsifq5rfkpse"
-path="res://.godot/imported/24px-Icon_gold.png-c9ebe9967f2d289d75214419f591877d.ctex"
+uid="uid://je8jubvx7qmy"
+path="res://.godot/imported/men.png-9757a2179ebdc7010abae3d6144130df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://gui/icons/24px-Icon_gold.png"
-dest_files=["res://.godot/imported/24px-Icon_gold.png-c9ebe9967f2d289d75214419f591877d.ctex"]
+source_file="res://gfx/icons/men.png"
+dest_files=["res://.godot/imported/men.png-9757a2179ebdc7010abae3d6144130df.ctex"]
 
 [params]
 

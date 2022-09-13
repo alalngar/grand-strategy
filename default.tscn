@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4a33ep2tkxj4"]
+[gd_scene load_steps=12 format=3 uid="uid://cu46bniir7i68"]
 
 [ext_resource type="Shader" path="res://map.gdshader" id="1_nikx4"]
 [ext_resource type="Script" path="res://map.gd" id="2_n3y1y"]
@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://camera.gd" id="4_04i3x"]
 [ext_resource type="Script" path="res://ui.gd" id="4_ah6qn"]
 [ext_resource type="Theme" uid="uid://xppql8hgbyer" path="res://theme.tres" id="5_n7eje"]
-[ext_resource type="Texture2D" uid="uid://blsifq5rfkpse" path="res://gui/icons/24px-Icon_gold.png" id="7_ty4cc"]
-[ext_resource type="Texture2D" uid="uid://je8jubvx7qmy" path="res://gui/icons/men.png" id="8_4ftlb"]
+[ext_resource type="Texture2D" uid="uid://blsifq5rfkpse" path="res://gfx/icons/24px-Icon_gold.png" id="7_ty4cc"]
+[ext_resource type="Texture2D" uid="uid://je8jubvx7qmy" path="res://gfx/icons/men.png" id="8_4ftlb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fe442"]
 shader = ExtResource("1_nikx4")
@@ -206,19 +206,16 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CountryName" type="Label" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI"]
-custom_minimum_size = Vector2(50, 50)
+[node name="CountryName" type="TextureRect" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI"]
+custom_minimum_size = Vector2(75, 50)
 layout_mode = 2
-offset_right = 50.0
+offset_right = 75.0
 offset_bottom = 50.0
-text = "IRE"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI"]
 layout_mode = 2
-offset_left = 54.0
-offset_right = 119.0
+offset_left = 79.0
+offset_right = 144.0
 offset_bottom = 50.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI/VBoxContainer2"]
@@ -252,8 +249,8 @@ vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI"]
 layout_mode = 2
-offset_left = 123.0
-offset_right = 188.0
+offset_left = 148.0
+offset_right = 213.0
 offset_bottom = 50.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/InfoPanel/MarginContainer/TopBarUI/VBoxContainer"]
