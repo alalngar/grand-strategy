@@ -1,5 +1,8 @@
 extends Node
 
+var has_started := false
+const MULTIPLAYER_PORT = 56727
+
 signal daily_tick()
 signal monthly_tick()
 signal yearly_tick()
@@ -17,22 +20,28 @@ var countries := {}
 var buildings := {}
 
 func _process(delta):
-	if time_paused:
+	if time_paused or not multiplayer.is_server():
 		return
+	
 	timer += delta
 	if timer >= time_speed:
 		timer = 0.0
 		total_days += 1
 		_tick()
 
-func _set_date():
+@rpc(call_local)
+func _set_date(days):
+	total_days = days
+	day = days % 30 + 1
+	month = days / 30 % 12 + 1
+	year = days / 30 / 12 + 1
+
+func _tick():
 	var _day = day
 	var _month = month
 	var _year = year
 	
-	day = total_days % 30 + 1
-	month = total_days / 30 % 12 + 1
-	year = total_days / 30 / 12 + 1
+	_set_date.rpc(total_days)
 	
 	if _day != day:
 		daily_tick.emit()
@@ -40,9 +49,6 @@ func _set_date():
 		monthly_tick.emit()
 	if _year != year:
 		yearly_tick.emit()
-
-func _tick():
-	_set_date()
 
 func get_date():
 	return "%d-%d-%d" % [year, month, day]
@@ -110,7 +116,3 @@ func _ready():
 			if province.owner == data.tag:
 				data.provinces.append(province)
 		countries[data.tag] = data
-	
-	Game.country = countries["IRE"]
-	
-	_set_date()

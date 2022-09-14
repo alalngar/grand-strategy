@@ -34,7 +34,6 @@ func _ready():
 		var building = Data.buildings[id]
 		if building == null: continue
 		var scene := bb_scene.instantiate()
-		# todo: dont rely on get_child
 		scene.get_child(1).text = "x%d " % building.cost
 		scene.get_child(2).text = tr("b%d" % building.id)
 		scene.pressed.connect(_build_building.bind(building.id))
@@ -44,9 +43,9 @@ func _process(delta):
 	time_date.text = Data.get_date_extended()
 	
 	info_treasury.text = str(ceil(Game.country.treasury))
-	info_income.text = "+%.2f Gold" % Game.last_monthly_income if Game.last_monthly_income >= 0.0 else "-%.2f Gold" % Game.last_monthly_income
-	info_total_pop.text = str(ceil(Game.total_population))
-	info_monthly_pop.text = "(+%.0f)" % Game.monthly_population
+	#info_income.text = "+%.2f Gold" % Game.last_monthly_income if Game.last_monthly_income >= 0.0 else "-%.2f Gold" % Game.last_monthly_income
+	#info_total_pop.text = str(ceil(Game.total_population))
+	#info_monthly_pop.text = "(+%.0f)" % Game.monthly_population
 	info_flag.texture = Game.country.flag
 	
 	_update_province_panel()
