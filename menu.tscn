@@ -63,7 +63,7 @@ grow_vertical = 2
 alignment = 1
 
 [node name="Button" type="Button" parent="Panel/VB"]
-custom_minimum_size = Vector2(150, 30)
+custom_minimum_size = Vector2i(150, 30)
 offset_left = 75.0
 offset_top = 20.0
 offset_right = 225.0
@@ -72,7 +72,7 @@ size_flags_horizontal = 4
 text = "Host"
 
 [node name="Spacer1" type="Control" parent="Panel/VB"]
-custom_minimum_size = Vector2(0, 10)
+custom_minimum_size = Vector2i(0, 10)
 layout_mode = 3
 anchors_preset = 0
 offset_top = 54.0
@@ -80,7 +80,7 @@ offset_right = 300.0
 offset_bottom = 64.0
 
 [node name="TextEdit" type="LineEdit" parent="Panel/VB"]
-custom_minimum_size = Vector2(150, 30)
+custom_minimum_size = Vector2i(150, 30)
 offset_left = 75.0
 offset_top = 68.0
 offset_right = 225.0
@@ -94,7 +94,7 @@ virtual_keyboard_enabled = false
 shortcut_keys_enabled = false
 
 [node name="Button2" type="Button" parent="Panel/VB"]
-custom_minimum_size = Vector2(150, 30)
+custom_minimum_size = Vector2i(150, 30)
 offset_left = 75.0
 offset_top = 102.0
 offset_right = 225.0
@@ -103,7 +103,7 @@ size_flags_horizontal = 4
 text = "Join"
 
 [node name="Spacer2" type="Control" parent="Panel/VB"]
-custom_minimum_size = Vector2(0, 10)
+custom_minimum_size = Vector2i(0, 10)
 layout_mode = 3
 anchors_preset = 0
 offset_top = 136.0
@@ -111,7 +111,7 @@ offset_right = 300.0
 offset_bottom = 146.0
 
 [node name="Button3" type="Button" parent="Panel/VB"]
-custom_minimum_size = Vector2(150, 30)
+custom_minimum_size = Vector2i(150, 30)
 offset_left = 75.0
 offset_top = 150.0
 offset_right = 225.0
@@ -148,7 +148,7 @@ grow_vertical = 2
 alignment = 1
 
 [node name="Button" type="Button" parent="Lobby"]
-custom_minimum_size = Vector2(150, 30)
+custom_minimum_size = Vector2i(150, 30)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0

@@ -65,4 +65,4 @@ func _peer_start_game():
 	Game.country = country
 	Data.has_started = true
 	Game.start()
-	get_tree().change_scene("res://default.tscn")
+	get_tree().change_scene_to_file("res://default.tscn")

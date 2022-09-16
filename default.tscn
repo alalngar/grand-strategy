@@ -11,7 +11,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fe442"]
 shader = ExtResource("1_nikx4")
-selected_color = null
+shader_parameter/selected_color = null
 
 [sub_resource type="LabelSettings" id="LabelSettings_1bvhc"]
 font_size = 12
@@ -47,39 +47,139 @@ grow_vertical = 2
 theme = ExtResource("5_n7eje")
 
 [node name="ProvPanel" type="Panel" parent="CanvasLayer/UI"]
-visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -200.0
-offset_right = 300.0
+offset_top = -300.0
+offset_right = 250.0
 grow_vertical = 0
 size_flags_horizontal = 0
 
-[node name="VB" type="VBoxContainer" parent="CanvasLayer/UI/ProvPanel"]
+[node name="VB1" type="VBoxContainer" parent="CanvasLayer/UI/ProvPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = 1.0
+offset_right = -17.0
+offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProvName" type="Label" parent="CanvasLayer/UI/ProvPanel/VB"]
+[node name="Province" type="Label" parent="CanvasLayer/UI/ProvPanel/VB1"]
+custom_minimum_size = Vector2i(0, 25)
 layout_mode = 2
-offset_right = 300.0
+offset_right = 216.0
 offset_bottom = 26.0
-text = "Default"
+text = "Gorp"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PopValue" type="Label" parent="CanvasLayer/UI/ProvPanel/VB"]
+[node name="Population" type="Label" parent="CanvasLayer/UI/ProvPanel/VB1"]
 layout_mode = 2
 offset_top = 30.0
-offset_right = 300.0
+offset_right = 216.0
 offset_bottom = 56.0
-text = "Population: 10000"
+text = "Population: 100,000"
 vertical_alignment = 1
+
+[node name="Autonomy" type="Label" parent="CanvasLayer/UI/ProvPanel/VB1"]
+custom_minimum_size = Vector2i(0, 25)
+layout_mode = 2
+offset_top = 60.0
+offset_right = 216.0
+offset_bottom = 86.0
+text = "Autonomy: 15%"
+vertical_alignment = 1
+
+[node name="Culture" type="Label" parent="CanvasLayer/UI/ProvPanel/VB1"]
+layout_mode = 2
+offset_top = 90.0
+offset_right = 216.0
+offset_bottom = 116.0
+text = "Culture: Grog"
+vertical_alignment = 1
+
+[node name="Religion" type="Label" parent="CanvasLayer/UI/ProvPanel/VB1"]
+layout_mode = 2
+offset_top = 120.0
+offset_right = 216.0
+offset_bottom = 146.0
+text = "Religion: Grimp"
+vertical_alignment = 1
+
+[node name="VB2" type="VBoxContainer" parent="CanvasLayer/UI/ProvPanel"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/UI/ProvPanel/VB2"]
+layout_mode = 2
+offset_left = 46.0
+offset_top = 23.0
+offset_right = 204.0
+offset_bottom = 127.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 3
+
+[node name="Button1" type="Button" parent="CanvasLayer/UI/ProvPanel/VB2/GridContainer"]
+custom_minimum_size = Vector2i(50, 50)
+layout_mode = 2
+offset_right = 50.0
+offset_bottom = 50.0
+text = "W"
+icon_alignment = 1
+
+[node name="Button2" type="Button" parent="CanvasLayer/UI/ProvPanel/VB2/GridContainer"]
+custom_minimum_size = Vector2i(50, 50)
+layout_mode = 2
+offset_left = 54.0
+offset_right = 104.0
+offset_bottom = 50.0
+text = "+"
+
+[node name="Button3" type="Button" parent="CanvasLayer/UI/ProvPanel/VB2/GridContainer"]
+custom_minimum_size = Vector2i(50, 50)
+layout_mode = 2
+offset_left = 108.0
+offset_right = 158.0
+offset_bottom = 50.0
+text = "+"
+
+[node name="Button4" type="Button" parent="CanvasLayer/UI/ProvPanel/VB2/GridContainer"]
+custom_minimum_size = Vector2i(50, 50)
+layout_mode = 2
+offset_top = 54.0
+offset_right = 50.0
+offset_bottom = 104.0
+text = "+"
+
+[node name="Button5" type="Button" parent="CanvasLayer/UI/ProvPanel/VB2/GridContainer"]
+custom_minimum_size = Vector2i(50, 50)
+layout_mode = 2
+offset_left = 54.0
+offset_top = 54.0
+offset_right = 104.0
+offset_bottom = 104.0
+text = "+"
+
+[node name="Button6" type="Button" parent="CanvasLayer/UI/ProvPanel/VB2/GridContainer"]
+custom_minimum_size = Vector2i(50, 50)
+layout_mode = 2
+offset_left = 108.0
+offset_top = 54.0
+offset_right = 158.0
+offset_bottom = 104.0
+text = "+"
 
 [node name="Close" type="Button" parent="CanvasLayer/UI/ProvPanel"]
 layout_mode = 1
@@ -91,49 +191,8 @@ offset_bottom = 26.0
 grow_horizontal = 0
 text = "X"
 
-[node name="Buildings" type="Button" parent="CanvasLayer/UI/ProvPanel"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -26.0
-offset_top = 25.0
-offset_bottom = 51.0
-grow_horizontal = 0
-text = "-"
-
-[node name="BuildPanel" type="Panel" parent="CanvasLayer/UI/ProvPanel"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -1.0
-offset_top = 25.0
-offset_right = 199.0
-offset_bottom = 200.0
-grow_horizontal = 0
-
-[node name="SC" type="ScrollContainer" parent="CanvasLayer/UI/ProvPanel/BuildPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = -1.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_scroll_mode = 0
-
-[node name="VB" type="VBoxContainer" parent="CanvasLayer/UI/ProvPanel/BuildPanel/SC"]
-layout_mode = 2
-offset_right = 198.0
-size_flags_horizontal = 3
-alignment = 1
-
 [node name="InfoPanel" type="Panel" parent="CanvasLayer/UI"]
-custom_minimum_size = Vector2(300, 50)
+custom_minimum_size = Vector2i(300, 50)
 layout_mode = 0
 offset_right = 300.0
 
@@ -153,7 +212,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Flag" type="TextureRect" parent="CanvasLayer/UI/InfoPanel/MC/HB"]
-custom_minimum_size = Vector2(75, 50)
+custom_minimum_size = Vector2i(75, 50)
 layout_mode = 2
 offset_right = 75.0
 offset_bottom = 50.0
@@ -238,7 +297,7 @@ offset_bottom = 36.0
 grow_horizontal = 0
 
 [node name="HB" type="HBoxContainer" parent="CanvasLayer/UI/TimePanel"]
-custom_minimum_size = Vector2(90, 36)
+custom_minimum_size = Vector2i(90, 36)
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -249,7 +308,7 @@ offset_bottom = 36.0
 grow_horizontal = 0
 
 [node name="Increase" type="Button" parent="CanvasLayer/UI/TimePanel/HB"]
-custom_minimum_size = Vector2(5, 5)
+custom_minimum_size = Vector2i(5, 5)
 layout_mode = 2
 offset_top = 5.0
 offset_right = 27.0
@@ -261,7 +320,7 @@ size_flags_vertical = 4
 text = "+"
 
 [node name="Decrease" type="Button" parent="CanvasLayer/UI/TimePanel/HB"]
-custom_minimum_size = Vector2(5, 5)
+custom_minimum_size = Vector2i(5, 5)
 layout_mode = 2
 offset_left = 31.0
 offset_top = 5.0
@@ -274,7 +333,7 @@ size_flags_vertical = 4
 text = "-"
 
 [node name="Pause" type="Button" parent="CanvasLayer/UI/TimePanel/HB"]
-custom_minimum_size = Vector2(5, 5)
+custom_minimum_size = Vector2i(5, 5)
 layout_mode = 2
 offset_left = 62.0
 offset_top = 5.0
@@ -287,7 +346,7 @@ size_flags_vertical = 4
 text = "="
 
 [node name="Date" type="Label" parent="CanvasLayer/UI/TimePanel"]
-custom_minimum_size = Vector2(160, 36)
+custom_minimum_size = Vector2i(160, 36)
 layout_mode = 0
 offset_right = 160.0
 offset_bottom = 36.0
