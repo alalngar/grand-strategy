@@ -19,6 +19,10 @@ var provinces := {}
 var countries := {}
 var buildings := {}
 
+const PROVINCE_MODIFIERS := {
+	"local_tax": 0.0
+}
+
 func _process(delta):
 	if time_paused or not multiplayer.is_server():
 		return
@@ -69,7 +73,7 @@ func get_date_extended():
 		11: _month = "November"
 		12: _month = "December"
 	
-	return "%s %s %d" % [day, _month, year]
+	return "%d %s %d" % [day, _month, year]
 
 func _ready():
 	var file := File.new()
@@ -100,6 +104,7 @@ func _ready():
 		data.owner = str(province.owner)
 		data.population = float(province.population)
 		data.buildings = []
+		data.modifiers = PROVINCE_MODIFIERS
 		provinces[data.color] = data
 	
 	for country in countries_json:

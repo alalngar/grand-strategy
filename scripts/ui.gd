@@ -41,13 +41,8 @@ func _ready():
 
 func _process(delta):
 	time_date.text = Data.get_date_extended()
-	
-	info_treasury.text = str(ceil(Game.country.treasury))
-	#info_income.text = "+%.2f Gold" % Game.last_monthly_income if Game.last_monthly_income >= 0.0 else "-%.2f Gold" % Game.last_monthly_income
-	#info_total_pop.text = str(ceil(Game.total_population))
-	#info_monthly_pop.text = "(+%.0f)" % Game.monthly_population
+	info_treasury.text = "%f" % Game.country.treasury
 	info_flag.texture = Game.country.flag
-	
 	_update_province_panel()
 
 func _selected_province(data):
