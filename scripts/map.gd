@@ -45,7 +45,7 @@ func _refresh_map():
 func _process(delta):
 	mouse_pos = get_global_mouse_position()
 
-func _input(event):
+func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			var color := map_image.get_pixelv(mouse_pos)

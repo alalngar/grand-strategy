@@ -90,34 +90,36 @@ func _ready():
 	var buildings_json = JSON.parse_string(file.get_as_text())
 	file.close()
 	
-	for building in buildings_json:
-		var data := {}
-		data.id = int(building.id)
-		data.cost = int(building.cost)
-		data.modifiers = building.modifiers
-		buildings[data.id] = data
+	for b in buildings_json:
+		var building = buildings_json[b]
+		building.cost = int(building.cost)
+		buildings[b] = building
 	
-	for province in provinces_json:
-		var data := {}
-		data.color = Color8(int(province.color[0]), int(province.color[1]), int(province.color[2]))
-		data.id = int(province.id)
-		data.owner = str(province.owner)
-		data.population = float(province.population)
-		data.buildings = []
-		data.modifiers = PROVINCE_MODIFIERS
-		provinces[data.color] = data
+	for p in provinces_json:
+		var province = provinces_json[p]
+		province.id = p.to_int()
+		province.color = Color8(int(province.color[0]), int(province.color[1]), int(province.color[2]))
+		province.owner = str(province.owner)
+		province.population = float(province.population)
+		province.buildings = []
+		province.modifiers = PROVINCE_MODIFIERS
+		provinces[province.color] = province
 	
-	for country in countries_json:
-		var data := {}
-		data.color = Color8(int(country.color[0]), int(country.color[1]), int(country.color[2]))
-		data.tag = str(country.tag)
-		data.provinces = []
-		data.treasury = 0
-		data.flag = load("res://gfx/flags/%s.png" % country.tag)
-		if data.flag == null:
-			data.flag = load("res://gfx/flags/default.png")
-		for key in provinces:
-			var province = provinces[key]
-			if province.owner == data.tag:
-				data.provinces.append(province)
-		countries[data.tag] = data
+	for c in countries_json:
+		var country = countries_json[c]
+		country.color = Color8(int(country.color[0]), int(country.color[1]), int(country.color[2]))
+		country.tag = c
+		country.provinces = []
+		country.treasury = 0
+		country.flag = load("res://gfx/flags/%s.png" % c)
+		if country.flag == null: country.flag = load("res://gfx/flags/default.png")
+		countries[c] = country
+	
+	for c in countries:
+		var country = countries[c]
+		for p in provinces:
+			var province = provinces[p]
+			if province.owner == c:
+				country.provinces.append(province)
+	
+	print("yo")

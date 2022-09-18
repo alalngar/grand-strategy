@@ -13,7 +13,7 @@ extends Control
 
 func _ready():
 	for id in Data.countries:
-		lobby_country.add_item(tr(Data.countries[id].tag))
+		lobby_country.add_item(tr(id))
 	
 	menu_host.pressed.connect(_host_game)
 	menu_join.pressed.connect(_join_game)

@@ -26,7 +26,7 @@ func _ready():
 	time_increase.pressed.connect(_increase_speed)
 	time_decrease.pressed.connect(_decrease_speed)
 	time_pause.pressed.connect(_pause_timer)
-	prov_build_1.pressed.connect(_build_building.bind(0))
+	prov_build_1.pressed.connect(_build_building.bind("church"))
 
 func _process(delta):
 	time_date.text = Data.get_date_extended()
@@ -45,7 +45,6 @@ func _update_province_panel():
 	if Game.selected_province:
 		prov_name.text = tr("p" + str(Game.selected_province.id))
 		prov_pop.text = "Population: %.0f" % Game.selected_province.population
-		
 
 func _pause_timer():
 	Data.time_paused = !Data.time_paused

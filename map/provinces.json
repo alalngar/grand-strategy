@@ -1,38 +1,52 @@
-[
-	{
+{
+	"0": {
 		"color": [0, 0, 0],
-		"id": 0,
 		"owner": "OCE",
 		"population": -1
 	},
-	{
-		"color": [0, 255, 144],
-		"id": 1,
-		"owner": "IRE",
+	"1": {
+		"color": [255, 255, 255],
+		"owner": "LND",
+		"population": -1
+	},
+	"2": {
+		"color": [150, 93, 191],
+		"owner": "CYD",
 		"population": 1000
 	},
-	{
-		"color": [76, 255, 0],
-		"id": 2,
-		"owner": "IRE",
+	"3": {
+		"color": [0, 148, 255],
+		"owner": "CYD",
 		"population": 1000
 	},
-	{
-		"color": [178, 0, 255],
-		"id": 3,
-		"owner": "ENG",
+	"4": {
+		"color": [191, 142, 78],
+		"owner": "CYD",
 		"population": 1000
 	},
-	{
-		"color": [255, 0, 0],
-		"id": 4,
-		"owner": "ENG",
+	"5": {
+		"color": [255, 187, 124],
+		"owner": "CYD",
 		"population": 1000
 	},
-	{
-		"color": [255, 106, 0],
-		"id": 5,
-		"owner": "ENG",
+	"6": {
+		"color": [255, 22, 69],
+		"owner": "WER",
+		"population": 10000
+	},
+	"7": {
+		"color": [101, 191, 102],
+		"owner": "WER",
+		"population": 10000
+	},
+	"8": {
+		"color": [255, 168, 174],
+		"owner": "WER",
+		"population": 10000
+	},
+	"9": {
+		"color": [76, 191, 164],
+		"owner": "WER",
 		"population": 10000
 	}
-]
+}

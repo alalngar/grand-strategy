@@ -1,9 +1,8 @@
-[
-	{
-		"id": 0,
+{
+	"church": {
 		"cost": 10,
 		"modifiers": {
 			"local_tax": 1.0
 		}
 	}
-]
+}

@@ -44,9 +44,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("5_n7eje")
 
 [node name="ProvPanel" type="Panel" parent="CanvasLayer/UI"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -136,7 +138,7 @@ custom_minimum_size = Vector2i(50, 50)
 layout_mode = 2
 offset_right = 50.0
 offset_bottom = 50.0
-text = "W"
+text = "C"
 icon_alignment = 1
 
 [node name="Button2" type="Button" parent="CanvasLayer/UI/ProvPanel/VB2/GridContainer"]

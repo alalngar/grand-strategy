@@ -25,6 +25,6 @@ void fragment() {
 	vec4 c4 = texture(lookup_texture, vec2(UV.x, UV.y - TEXTURE_PIXEL_SIZE.y));
 	
 	if (c1 != uv || c2 != uv || c3 != uv || c4 != uv) {
-		COLOR = mix(COLOR, vec4(0.0, 0.0, 0.0, 1.0), 0.3);
+		COLOR = mix(COLOR, vec4(0.0, 0.0, 0.0, 1.0), 0.2);
 	}
 }
