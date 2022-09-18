@@ -20,32 +20,17 @@
 		"population": 1000
 	},
 	"4": {
-		"color": [191, 142, 78],
-		"owner": "CYD",
-		"population": 1000
-	},
-	"5": {
-		"color": [255, 187, 124],
-		"owner": "CYD",
-		"population": 1000
-	},
-	"6": {
 		"color": [255, 22, 69],
 		"owner": "WER",
 		"population": 10000
 	},
-	"7": {
+	"5": {
 		"color": [101, 191, 102],
 		"owner": "WER",
 		"population": 10000
 	},
-	"8": {
-		"color": [255, 168, 174],
-		"owner": "WER",
-		"population": 10000
-	},
-	"9": {
-		"color": [76, 191, 164],
+	"6": {
+		"color": [255, 216, 0],
 		"owner": "WER",
 		"population": 10000
 	}

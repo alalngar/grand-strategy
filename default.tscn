@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bj6r0bci8qs30"]
+[gd_scene load_steps=13 format=3 uid="uid://bj6r0bci8qs30"]
 
 [ext_resource type="Shader" path="res://gfx/shaders/map.gdshader" id="1_nikx4"]
 [ext_resource type="Script" path="res://scripts/map.gd" id="2_n3y1y"]
@@ -12,6 +12,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fe442"]
 shader = ExtResource("1_nikx4")
 shader_parameter/selected_color = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_fuuro"]
+font_size = 12
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1bvhc"]
 font_size = 12
@@ -28,6 +33,14 @@ material = SubResource("ShaderMaterial_fe442")
 texture = ExtResource("2_o11yq")
 centered = false
 script = ExtResource("2_n3y1y")
+
+[node name="Unit" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Unit"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "10k"
+label_settings = SubResource("LabelSettings_fuuro")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
