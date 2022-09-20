@@ -9,8 +9,8 @@ var mouse_pos := Vector2.ZERO
 
 func _ready():
 	Game.province_selected.connect(_update_selection)
-	lookup_image.create(texture.get_width(), texture.get_height(), false, Image.FORMAT_RGB8)
-	color_image.create(256, 256, false, Image.FORMAT_RGB8)
+	lookup_image.create(texture.get_width(), texture.get_height(), false, Image.FORMAT_RGB8 | Image.INTERPOLATE_NEAREST)
+	color_image.create(256, 256, false, Image.FORMAT_RGB8 | Image.INTERPOLATE_NEAREST)
 	
 	for x in range(texture.get_width()):
 		for y in range(texture.get_height()):
