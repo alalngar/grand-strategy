@@ -13,7 +13,7 @@ extends CanvasLayer
 @onready var info_income := $UI/InfoPanel/MC/HB/VB1/Income
 @onready var info_total_pop := $UI/InfoPanel/MC/HB/VB2/HB/Pop
 @onready var info_monthly_pop := $UI/InfoPanel/MC/HB/VB2/Growth
-@onready var info_flag := $UI/InfoPanel/MC/HB/Flag
+@onready var info_flag := $UI/NewUIPanel/Flag
 
 @onready var time_date := $UI/TimePanel/Date
 @onready var time_increase = $UI/TimePanel/HB/Increase
