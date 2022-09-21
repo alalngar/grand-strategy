@@ -23,8 +23,15 @@ const PROVINCE_MODIFIERS := {
 	"local_tax": 0.0
 }
 
+# maybe set_process(false) instead of the constant is_server check
 func _process(delta):
-	if time_paused or not multiplayer.is_server():
+	if not multiplayer.is_server():
+		return
+		
+	if year == 0:
+		_set_date.rpc(total_days)
+	
+	if time_paused:
 		return
 	
 	timer += delta
@@ -55,7 +62,7 @@ func _tick():
 		yearly_tick.emit()
 
 func get_date():
-	return "%d-%d-%d" % [year, month, day]
+	return "%d-%d-%d" % [day, month, year]
 
 func get_date_extended():
 	var _month = "Month"
