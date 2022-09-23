@@ -12,6 +12,11 @@ void fragment() {
 	vec4 country_color = texelFetch(color_texture, ivec2(uv.xy * vec2(255.0)), 0);
 	COLOR = country_color;
 	
+	uvec4 color = uvec4(uv.rgba * 255.0);
+	if (color == selected_color) {
+		COLOR = mix(COLOR, vec4(1.0, 1.0, 1.0, 1.0), 0.75);
+	}
+	
 	// for later
 	vec2 cborder_width = TEXTURE_PIXEL_SIZE.xy;
 	vec2 pborder_width = TEXTURE_PIXEL_SIZE.xy;
@@ -34,12 +39,5 @@ void fragment() {
 		if (pb1 != uv || pb2 != uv || pb3 != uv || pb4 != uv) {
 			COLOR = mix(COLOR, vec4(0.0, 0.0, 0.0, 1.0), 0.15);
 		}
-	}
-	
-	// maybe put before borders are made
-	// uvec4(uv.rgb * 255.0) ?
-	uvec4 color = uvec4(uint(round(uv.r * 255.0)), uint(round(uv.g * 255.0)), uint(round(uv.b * 255.0)), 255);
-	if (color == selected_color) {
-		COLOR = mix(COLOR, vec4(1.0, 1.0, 1.0, 1.0), 0.8);
 	}
 }

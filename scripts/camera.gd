@@ -7,6 +7,6 @@ func _process(delta):
 	position += vector * SPEED * delta
 	
 	if Input.is_action_just_released("zoom_in"):
-		zoom *= 1.25
+		zoom *= 1.5
 	elif Input.is_action_just_released("zoom_out"):
-		zoom /= 1.25
+		zoom /= 1.5

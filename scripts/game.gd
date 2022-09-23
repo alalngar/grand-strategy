@@ -2,6 +2,7 @@ extends Node
 
 signal province_selected(data)
 signal build_building(data)
+signal unit_selected()
 
 var selected_province
 
