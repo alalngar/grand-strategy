@@ -1,5 +1,7 @@
 extends Control
 
+@onready var game_scene := load("res://default.tscn")
+
 @onready var menu_panel := $Panel
 @onready var menu_host := $Panel/VB/Button
 @onready var menu_ip := $Panel/VB/TextEdit
@@ -65,4 +67,4 @@ func _peer_start_game():
 	Game.country = country
 	Data.has_started = true
 	Game.start()
-	get_tree().change_scene_to_file("res://default.tscn")
+	get_tree().change_scene_to_packed(game_scene)

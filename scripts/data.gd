@@ -107,7 +107,7 @@ func _ready():
 		province.id = p.to_int()
 		province.color = Color8(int(province.color[0]), int(province.color[1]), int(province.color[2]))
 		province.owner = str(province.owner)
-		province.population = float(province.population)
+		province.development = float(province.development)
 		province.center = Vector2i(int(province.center[0]), int(province.center[1]))
 		province.buildings = []
 		province.modifiers = PROVINCE_MODIFIERS
@@ -129,5 +129,3 @@ func _ready():
 			var province = provinces[p]
 			if province.owner == c:
 				country.provinces.append(province)
-	
-	print("yo")

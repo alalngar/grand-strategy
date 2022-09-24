@@ -1,10 +1,10 @@
 extends Node
 
-func province_pop(prov):
-	_sync_province_pop.rpc(prov.color, prov.population)
+func province_dev(prov):
+	_sync_province_dev.rpc(prov.color, prov.development)
 
-@rpc(any_peer) func _sync_province_pop(color, pop):
-	Data.provinces[color].population = pop
+@rpc(any_peer) func _sync_province_dev(color, dev):
+	Data.provinces[color].development = dev
 
 func country_treasury(country):
 	_sync_country_treasury.rpc(country.tag, country.treasury)

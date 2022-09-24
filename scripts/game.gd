@@ -12,8 +12,8 @@ func start():
 	province_selected.connect(_province_selected)
 	build_building.connect(_add_building)
 	
-	if not multiplayer.is_server(): return
-	Data.monthly_tick.connect(_monthly_tick)
+	if multiplayer.is_server():
+		Data.monthly_tick.connect(_monthly_tick)
 
 func _add_building(data):
 	if data == null or selected_province.buildings.has(data) or data.cost > country.treasury:
@@ -34,10 +34,5 @@ func _monthly_tick():
 	for tag in Data.countries:
 		var c = Data.countries[tag]
 		for p in c.provinces:
-			var growth = float(p.population) * (0.02 / 12.0)
-			p.population += growth
-			MPSync.province_pop(p)
-		for p in c.provinces:
-			var tax = float(p.population / 1000) / 6.0
-			c.treasury += tax + (tax * p.modifiers["local_tax"])
+			c.treasury += 0.1
 			MPSync.country_treasury(c)

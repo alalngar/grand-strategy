@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bj6r0bci8qs30"]
+[gd_scene load_steps=11 format=3 uid="uid://bj6r0bci8qs30"]
 
 [ext_resource type="Shader" path="res://gfx/shaders/map.gdshader" id="1_nikx4"]
 [ext_resource type="Script" path="res://scripts/map.gd" id="2_n3y1y"]
@@ -7,8 +7,6 @@
 [ext_resource type="Script" path="res://scripts/ui.gd" id="4_ah6qn"]
 [ext_resource type="Script" path="res://unit.gd" id="4_fty0k"]
 [ext_resource type="Theme" uid="uid://drka4h4teonns" path="res://gfx/res/theme.tres" id="5_n7eje"]
-[ext_resource type="Texture2D" uid="uid://blsifq5rfkpse" path="res://gfx/icons/24px-Icon_gold.png" id="7_ty4cc"]
-[ext_resource type="Texture2D" uid="uid://je8jubvx7qmy" path="res://gfx/icons/men.png" id="8_4ftlb"]
 [ext_resource type="Texture2D" uid="uid://by00guvuhqqgk" path="res://gfx/flags/WER.png" id="9_8nv21"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fe442"]
@@ -17,14 +15,6 @@ shader_parameter/selected_color = null
 
 [sub_resource type="LabelSettings" id="LabelSettings_7vhyt"]
 font_size = 10
-
-[sub_resource type="LabelSettings" id="LabelSettings_1bvhc"]
-font_size = 12
-font_color = Color(0.711178, 0.7249, 0.714492, 0.588235)
-
-[sub_resource type="LabelSettings" id="LabelSettings_jshwh"]
-font_size = 12
-font_color = Color(0.709804, 0.72549, 0.713726, 0.588235)
 
 [node name="World" type="Node2D"]
 
@@ -42,7 +32,6 @@ offset_bottom = 25.0
 script = ExtResource("4_fty0k")
 
 [node name="Sprite" type="Sprite2D" parent="Unit"]
-texture = ExtResource("8_4ftlb")
 centered = false
 
 [node name="Label" type="Label" parent="Unit"]
@@ -63,181 +52,6 @@ script = ExtResource("4_04i3x")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("4_ah6qn")
-
-[node name="OldUI" type="Control" parent="CanvasLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("5_n7eje")
-
-[node name="InfoPanel" type="Panel" parent="CanvasLayer/OldUI"]
-visible = false
-custom_minimum_size = Vector2i(300, 50)
-layout_mode = 0
-offset_right = 300.0
-
-[node name="MC" type="MarginContainer" parent="CanvasLayer/OldUI/InfoPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HB" type="HBoxContainer" parent="CanvasLayer/OldUI/InfoPanel/MC"]
-layout_mode = 2
-offset_right = 300.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Flag" type="TextureRect" parent="CanvasLayer/OldUI/InfoPanel/MC/HB"]
-custom_minimum_size = Vector2i(75, 50)
-layout_mode = 2
-offset_right = 75.0
-offset_bottom = 50.0
-
-[node name="VB1" type="VBoxContainer" parent="CanvasLayer/OldUI/InfoPanel/MC/HB"]
-layout_mode = 2
-offset_left = 79.0
-offset_right = 144.0
-offset_bottom = 50.0
-
-[node name="HB" type="HBoxContainer" parent="CanvasLayer/OldUI/InfoPanel/MC/HB/VB1"]
-layout_mode = 2
-offset_right = 65.0
-offset_bottom = 26.0
-
-[node name="Icon" type="TextureRect" parent="CanvasLayer/OldUI/InfoPanel/MC/HB/VB1/HB"]
-layout_mode = 2
-offset_right = 24.0
-offset_bottom = 26.0
-texture = ExtResource("7_ty4cc")
-
-[node name="Gold" type="Label" parent="CanvasLayer/OldUI/InfoPanel/MC/HB/VB1/HB"]
-layout_mode = 2
-offset_left = 28.0
-offset_right = 65.0
-offset_bottom = 26.0
-text = "1000"
-vertical_alignment = 1
-
-[node name="Income" type="Label" parent="CanvasLayer/OldUI/InfoPanel/MC/HB/VB1"]
-layout_mode = 2
-offset_top = 30.0
-offset_right = 65.0
-offset_bottom = 50.0
-text = "+1 Gold"
-label_settings = SubResource("LabelSettings_1bvhc")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VB2" type="VBoxContainer" parent="CanvasLayer/OldUI/InfoPanel/MC/HB"]
-layout_mode = 2
-offset_left = 148.0
-offset_right = 213.0
-offset_bottom = 50.0
-
-[node name="HB" type="HBoxContainer" parent="CanvasLayer/OldUI/InfoPanel/MC/HB/VB2"]
-layout_mode = 2
-offset_right = 65.0
-offset_bottom = 26.0
-
-[node name="Icon" type="TextureRect" parent="CanvasLayer/OldUI/InfoPanel/MC/HB/VB2/HB"]
-layout_mode = 2
-offset_right = 24.0
-offset_bottom = 26.0
-texture = ExtResource("8_4ftlb")
-
-[node name="Pop" type="Label" parent="CanvasLayer/OldUI/InfoPanel/MC/HB/VB2/HB"]
-layout_mode = 2
-offset_left = 28.0
-offset_right = 65.0
-offset_bottom = 26.0
-text = "1000"
-vertical_alignment = 1
-
-[node name="Growth" type="Label" parent="CanvasLayer/OldUI/InfoPanel/MC/HB/VB2"]
-layout_mode = 2
-offset_top = 30.0
-offset_right = 65.0
-offset_bottom = 50.0
-text = "(24k)"
-label_settings = SubResource("LabelSettings_jshwh")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TimePanel" type="Panel" parent="CanvasLayer/OldUI"]
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -250.0
-offset_bottom = 36.0
-grow_horizontal = 0
-
-[node name="HB" type="HBoxContainer" parent="CanvasLayer/OldUI/TimePanel"]
-custom_minimum_size = Vector2i(90, 36)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -95.0
-offset_right = -5.0
-offset_bottom = 36.0
-grow_horizontal = 0
-
-[node name="Increase" type="Button" parent="CanvasLayer/OldUI/TimePanel/HB"]
-custom_minimum_size = Vector2i(5, 5)
-layout_mode = 2
-offset_top = 5.0
-offset_right = 27.0
-offset_bottom = 30.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-text = "+"
-
-[node name="Decrease" type="Button" parent="CanvasLayer/OldUI/TimePanel/HB"]
-custom_minimum_size = Vector2i(5, 5)
-layout_mode = 2
-offset_left = 31.0
-offset_top = 5.0
-offset_right = 58.0
-offset_bottom = 30.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-text = "-"
-
-[node name="Pause" type="Button" parent="CanvasLayer/OldUI/TimePanel/HB"]
-custom_minimum_size = Vector2i(5, 5)
-layout_mode = 2
-offset_left = 62.0
-offset_top = 5.0
-offset_right = 90.0
-offset_bottom = 30.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-text = "="
-
-[node name="Date" type="Label" parent="CanvasLayer/OldUI/TimePanel"]
-custom_minimum_size = Vector2i(160, 36)
-layout_mode = 0
-offset_right = 160.0
-offset_bottom = 36.0
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3

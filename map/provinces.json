@@ -1,44 +1,44 @@
 {
-	"0": {
+	"100": {
 		"color": [0, 0, 0],
 		"owner": "OCE",
-		"population": 0,
+		"development": 0,
+		"center": [0, 0]
+	},
+	"101": {
+		"color": [255, 255, 255],
+		"owner": "LND",
+		"development": 0,
 		"center": [0, 0]
 	},
 	"1": {
-		"color": [255, 255, 255],
-		"owner": "LND",
-		"population": 0,
-		"center": [0, 0]
-	},
-	"2": {
 		"color": [150, 93, 191],
 		"owner": "CYD",
-		"population": 1000,
+		"development": 10,
 		"center": [95, 145]
 	},
-	"3": {
+	"2": {
 		"color": [0, 148, 255],
 		"owner": "CYD",
-		"population": 1000,
+		"development": 10,
 		"center": [125, 140]
 	},
-	"4": {
+	"3": {
 		"color": [255, 22, 69],
 		"owner": "WER",
-		"population": 10000,
+		"development": 10,
 		"center": [100, 110]
 	},
-	"5": {
+	"4": {
 		"color": [101, 191, 102],
 		"owner": "WER",
-		"population": 10000,
+		"development": 10,
 		"center": [130, 105]
 	},
-	"6": {
+	"5": {
 		"color": [255, 216, 0],
 		"owner": "WER",
-		"population": 10000,
+		"development": 10,
 		"center": [103, 88]
 	}
 }
