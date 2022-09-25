@@ -19,10 +19,6 @@ var provinces := {}
 var countries := {}
 var buildings := {}
 
-const PROVINCE_MODIFIERS := {
-	"local_tax": 0.0
-}
-
 # maybe set_process(false) instead of the constant is_server check
 func _process(delta):
 	if not multiplayer.is_server():
@@ -110,7 +106,6 @@ func _ready():
 		province.development = float(province.development)
 		province.center = Vector2i(int(province.center[0]), int(province.center[1]))
 		province.buildings = []
-		province.modifiers = PROVINCE_MODIFIERS
 		provinces[province.color] = province
 	
 	for c in countries_json:

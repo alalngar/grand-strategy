@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://drka4h4teonns"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://drka4h4teonns"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfhpu"]
 bg_color = Color(0, 0, 0, 0.588235)
@@ -41,6 +41,24 @@ corner_radius_bottom_left = 2
 anti_aliasing = false
 anti_aliasing_size = 10.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhgja"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0.0196078, 0.0196078, 0.0392157, 0.784314)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+anti_aliasing_size = 10.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ueycx"]
 bg_color = Color(1, 1, 1, 0.784314)
 corner_detail = 1
@@ -63,6 +81,8 @@ Label/constants/outline_size = 4
 LineEdit/styles/focus = SubResource("StyleBoxFlat_31w8r")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_ykm34")
 Panel/styles/panel = SubResource("StyleBoxFlat_i0pg0")
+TooltipLabel/font_sizes/font_size = 12
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_qhgja")
 VScrollBar/styles/grabber = SubResource("StyleBoxFlat_ueycx")
 VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_ueycx")
 VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_ueycx")

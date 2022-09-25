@@ -1,15 +1,26 @@
 extends CanvasLayer
 
+@onready var flag_tex := $UI/TopPanel/Flag
 @onready var income_lbl := $UI/TopPanel/HB2/Income
-
 @onready var decrease_speed_btn := $UI/TopPanel/Time/HB/Decrease
 @onready var increase_speed_btn := $UI/TopPanel/Time/HB/Increase
 @onready var pause_time_btn := $UI/TopPanel/Time/HB/Pause
 @onready var date_lbl := $UI/TopPanel/Time/Date
 
+@onready var province_panel := $UI/ProvPanel
+@onready var province_name_lbl := $UI/ProvPanel/Name
+@onready var province_owner_lbl := $UI/ProvPanel/VB/Owner
+@onready var province_control_lbl := $UI/ProvPanel/VB/Control
+@onready var province_dev_lbl := $UI/ProvPanel/VB/Development
+@onready var province_close_btn := $UI/ProvPanel/Close
+
 func _ready():
 	_update_info()
+	flag_tex.texture = Game.country.flag
+	
+	Game.province_selected.connect(_update_prov)
 	Data.daily_tick.connect(_daily_tick)
+	province_close_btn.pressed.connect(func(): Game.province_selected.emit(null))
 	
 	pause_time_btn.pressed.connect(_pause_timer)
 	increase_speed_btn.pressed.connect(_increase_speed)
@@ -24,8 +35,17 @@ func _daily_tick():
 func _update_info():
 	income_lbl.text = "%.0f$" % Game.country.treasury
 
+func _update_prov(data):
+	if data == null:
+		province_panel.visible = false
+		return
+	province_panel.visible = true
+	province_name_lbl.text = tr("p%d" % data.id)
+	province_owner_lbl.text = "Owner: %s" % tr(data.owner)
+	province_dev_lbl.text = "Development: %.0f" % data.development
+
 func _pause_timer():
-	# todo sync time pausing for other players
+	# sync time pausing for other players
 	Data.time_paused = !Data.time_paused
 	pause_time_btn.text = "=" if Data.time_paused else ">"
 

@@ -11,31 +11,31 @@
 		"development": 0,
 		"center": [0, 0]
 	},
-	"1": {
+	"0": {
 		"color": [150, 93, 191],
 		"owner": "CYD",
 		"development": 10,
 		"center": [95, 145]
 	},
-	"2": {
+	"1": {
 		"color": [0, 148, 255],
 		"owner": "CYD",
 		"development": 10,
 		"center": [125, 140]
 	},
-	"3": {
+	"2": {
 		"color": [255, 22, 69],
 		"owner": "WER",
 		"development": 10,
 		"center": [100, 110]
 	},
-	"4": {
+	"3": {
 		"color": [101, 191, 102],
 		"owner": "WER",
 		"development": 10,
 		"center": [130, 105]
 	},
-	"5": {
+	"4": {
 		"color": [255, 216, 0],
 		"owner": "WER",
 		"development": 10,
