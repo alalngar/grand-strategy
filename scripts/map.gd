@@ -1,5 +1,7 @@
 extends Sprite2D
 
+# TODO: move all map stuff into the Data or Game script
+
 @onready var map_image := texture.get_image()
 @onready var lookup_image := Image.new()
 @onready var color_image := Image.new()
@@ -14,13 +16,27 @@ func _ready():
 	lookup_image.create(texture.get_width(), texture.get_height(), false, Image.FORMAT_RGB8 | Image.INTERPOLATE_NEAREST)
 	color_image.create(256, 256, false, Image.FORMAT_RGB8 | Image.INTERPOLATE_NEAREST)
 	
-	for x in range(texture.get_width()):
-		for y in range(texture.get_height()):
+	var previous_province = {}
+	var previous_id = 0
+	for y in range(texture.get_height()):
+		for x in range(texture.get_width()):
 			var color = map_image.get_pixel(x, y)
 			if not Data.provinces.has(color):
 				continue
 			var province = Data.provinces[color]
 			lookup_image.set_pixel(x, y, Color8(province.id % 256, province.id / 256, 0))
+			
+			# set province neighbors
+			# maybe delegate to data
+			if previous_id != province.id and previous_province:
+				if not previous_province.neighbors.has(province.id):
+					previous_province.neighbors.append(province.id)
+				if not province.neighbors.has(previous_id):
+					province.neighbors.append(previous_id)
+			previous_id = province.id
+			previous_province = province
+	
+	Data.connect_points()
 	
 	var lookup_texture = ImageTexture.create_from_image(lookup_image)
 	material.set_shader_parameter("lookup_texture", lookup_texture)

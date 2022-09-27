@@ -129,16 +129,17 @@ func _ready():
 		province.center = Vector2i(int(province.center[0]), int(province.center[1]))
 		province.religion = religions[province.religion]
 		province.buildings = []
+		province.neighbors = []
 		provinces[province.color] = province
 		
 		pathfinding.add_point(province.id, province.center)
 	
-	for c in countries:
-		var country = countries[c]
-		for p in provinces:
-			var province = provinces[p]
-			if province.owner.tag == c:
+	for country in countries.values():
+		for province in provinces.values():
+			if province.owner.tag == country.tag:
 				country.provinces.append(province)
-	
-	# assign neighbors of each province to each province
-	# then set the connection in the pathfinding node
+
+func connect_points():
+	for province in provinces.values():
+		for id in province.neighbors:
+			pathfinding.connect_points(province.id, id)
