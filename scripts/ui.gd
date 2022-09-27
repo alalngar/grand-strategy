@@ -14,6 +14,10 @@ extends CanvasLayer
 @onready var province_dev_lbl := $UI/ProvPanel/VB/Development
 @onready var province_close_btn := $UI/ProvPanel/Close
 
+@onready var nation_mode_btn := $UI/MapPanel/HB/Nation
+@onready var religion_mode_btn := $UI/MapPanel/HB/Religion
+@onready var culture_mode_btn := $UI/MapPanel/HB/Culture
+
 func _ready():
 	_update_info()
 	flag_tex.texture = Game.country.flag
@@ -25,6 +29,10 @@ func _ready():
 	pause_time_btn.pressed.connect(_pause_timer)
 	increase_speed_btn.pressed.connect(_increase_speed)
 	decrease_speed_btn.pressed.connect(_decrease_speed)
+	
+	nation_mode_btn.pressed.connect(func(): Game.set_map_mode.emit(0))
+	religion_mode_btn.pressed.connect(func(): Game.set_map_mode.emit(1))
+	culture_mode_btn.pressed.connect(func(): Game.set_map_mode.emit(2))
 
 func _process(delta):
 	date_lbl.text = Data.get_date()
@@ -41,7 +49,7 @@ func _update_prov(data):
 		return
 	province_panel.visible = true
 	province_name_lbl.text = tr("p%d" % data.id)
-	province_owner_lbl.text = "Owner: %s" % tr(data.owner)
+	province_owner_lbl.text = "Owner: %s" % tr(data.owner.tag)
 	province_dev_lbl.text = "Development: %.0f" % data.development
 
 func _pause_timer():

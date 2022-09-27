@@ -5,7 +5,6 @@ uniform sampler2D lookup_texture;
 uniform sampler2D color_texture;
 uniform uvec4 selected_color;
 
-
 void fragment() {
 	vec2 texture_size = vec2(textureSize(lookup_texture, 0).xy);
 	vec4 uv = texelFetch(lookup_texture, ivec2(UV.xy * texture_size), 0);

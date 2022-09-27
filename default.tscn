@@ -361,3 +361,57 @@ offset_left = -25.0
 offset_bottom = 25.0
 grow_horizontal = 0
 text = "X"
+
+[node name="MapPanel" type="Panel" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -31.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="HB" type="HBoxContainer" parent="CanvasLayer/UI/MapPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Nation" type="Button" parent="CanvasLayer/UI/MapPanel/HB"]
+custom_minimum_size = Vector2i(25, 25)
+layout_mode = 2
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 28.0
+offset_bottom = 28.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "N"
+
+[node name="Religion" type="Button" parent="CanvasLayer/UI/MapPanel/HB"]
+custom_minimum_size = Vector2i(25, 25)
+layout_mode = 2
+offset_left = 32.0
+offset_top = 3.0
+offset_right = 57.0
+offset_bottom = 28.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "R"
+
+[node name="Culture" type="Button" parent="CanvasLayer/UI/MapPanel/HB"]
+custom_minimum_size = Vector2i(25, 25)
+layout_mode = 2
+offset_left = 61.0
+offset_top = 3.0
+offset_right = 86.0
+offset_bottom = 28.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "C"

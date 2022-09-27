@@ -18,6 +18,9 @@ var time_speed := 1.0
 var provinces := {}
 var countries := {}
 var buildings := {}
+var religions := {}
+
+var pathfinding = AStar2D.new()
 
 # maybe set_process(false) instead of the constant is_server check
 func _process(delta):
@@ -93,20 +96,19 @@ func _ready():
 	var buildings_json = JSON.parse_string(file.get_as_text())
 	file.close()
 	
+	file.open("res://common/religions.json", File.READ)
+	var religions_json = JSON.parse_string(file.get_as_text())
+	file.close()
+	
 	for b in buildings_json:
 		var building = buildings_json[b]
 		building.cost = int(building.cost)
 		buildings[b] = building
 	
-	for p in provinces_json:
-		var province = provinces_json[p]
-		province.id = p.to_int()
-		province.color = Color8(int(province.color[0]), int(province.color[1]), int(province.color[2]))
-		province.owner = str(province.owner)
-		province.development = float(province.development)
-		province.center = Vector2i(int(province.center[0]), int(province.center[1]))
-		province.buildings = []
-		provinces[province.color] = province
+	for r in religions_json:
+		var religion = religions_json[r]
+		religion.color = Color8(int(religion.color[0]), int(religion.color[1]), int(religion.color[2]))
+		religions[r] = religion
 	
 	for c in countries_json:
 		var country = countries_json[c]
@@ -118,9 +120,25 @@ func _ready():
 		if country.flag == null: country.flag = load("res://gfx/flags/default.png")
 		countries[c] = country
 	
+	for p in provinces_json:
+		var province = provinces_json[p]
+		province.id = p.to_int()
+		province.color = Color8(int(province.color[0]), int(province.color[1]), int(province.color[2]))
+		province.owner = countries[province.owner]
+		province.development = float(province.development)
+		province.center = Vector2i(int(province.center[0]), int(province.center[1]))
+		province.religion = religions[province.religion]
+		province.buildings = []
+		provinces[province.color] = province
+		
+		pathfinding.add_point(province.id, province.center)
+	
 	for c in countries:
 		var country = countries[c]
 		for p in provinces:
 			var province = provinces[p]
-			if province.owner == c:
+			if province.owner.tag == c:
 				country.provinces.append(province)
+	
+	# assign neighbors of each province to each province
+	# then set the connection in the pathfinding node

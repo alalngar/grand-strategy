@@ -3,42 +3,49 @@
 		"color": [0, 0, 0],
 		"owner": "OCE",
 		"development": 0,
+		"religion": "none",
 		"center": [0, 0]
 	},
 	"101": {
 		"color": [255, 255, 255],
 		"owner": "LND",
 		"development": 0,
+		"religion": "none",
 		"center": [0, 0]
 	},
 	"0": {
 		"color": [150, 93, 191],
 		"owner": "CYD",
 		"development": 10,
+		"religion": "ertu",
 		"center": [95, 145]
 	},
 	"1": {
 		"color": [0, 148, 255],
 		"owner": "CYD",
 		"development": 10,
+		"religion": "ertu",
 		"center": [125, 140]
 	},
 	"2": {
 		"color": [255, 22, 69],
 		"owner": "WER",
 		"development": 10,
+		"religion": "ertu",
 		"center": [100, 110]
 	},
 	"3": {
 		"color": [101, 191, 102],
 		"owner": "WER",
 		"development": 10,
+		"religion": "raylen",
 		"center": [130, 105]
 	},
 	"4": {
 		"color": [255, 216, 0],
 		"owner": "WER",
 		"development": 10,
+		"religion": "raylen",
 		"center": [103, 88]
 	}
 }

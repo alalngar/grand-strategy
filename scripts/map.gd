@@ -3,12 +3,14 @@ extends Sprite2D
 @onready var map_image := texture.get_image()
 @onready var lookup_image := Image.new()
 @onready var color_image := Image.new()
+
 var color_texture
 
 var mouse_pos := Vector2.ZERO
 
 func _ready():
 	Game.province_selected.connect(_update_selection)
+	Game.set_map_mode.connect(_set_map_mode)
 	lookup_image.create(texture.get_width(), texture.get_height(), false, Image.FORMAT_RGB8 | Image.INTERPOLATE_NEAREST)
 	color_image.create(256, 256, false, Image.FORMAT_RGB8 | Image.INTERPOLATE_NEAREST)
 	
@@ -22,10 +24,23 @@ func _ready():
 	
 	var lookup_texture = ImageTexture.create_from_image(lookup_image)
 	material.set_shader_parameter("lookup_texture", lookup_texture)
+	
 	color_texture = ImageTexture.create_from_image(color_image)
 	material.set_shader_parameter("color_texture", color_texture)
 	
-	_refresh_map()
+	_set_map_mode(0)
+
+func _update_map_mode(id):
+	var color = Color.WHITE
+	for province in Data.provinces.values():
+		match id:
+			0: color = province.owner.color
+			1: color = province.religion.color
+		color_image.set_pixel(province.id % 256, province.id / 256, color)
+	color_texture.update(color_image)
+
+func _set_map_mode(id):
+	_update_map_mode(id)
 
 func _update_selection(data):
 	if data == null:
@@ -33,14 +48,6 @@ func _update_selection(data):
 		return
 	var lookup_color := lookup_image.get_pixelv(mouse_pos)
 	material.set_shader_parameter("selected_color", Vector4(lookup_color.r8, lookup_color.g8, lookup_color.b8, 255))
-
-func _refresh_map():
-	for key in Data.provinces:
-		var province = Data.provinces[key]
-		var color = Data.countries[province.owner].color
-		color_image.set_pixel(province.id % 256, province.id / 256, color)
-	
-	color_texture.update(color_image)
 
 func _process(delta):
 	mouse_pos = get_global_mouse_position()
