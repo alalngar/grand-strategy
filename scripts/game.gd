@@ -3,6 +3,7 @@ extends Node
 signal province_selected(data)
 signal build_building(data)
 signal unit_selected()
+signal unit_move(pos)
 signal set_map_mode(id)
 
 var selected_province

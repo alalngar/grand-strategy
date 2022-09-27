@@ -110,6 +110,7 @@ func _ready():
 		religion.color = Color8(int(religion.color[0]), int(religion.color[1]), int(religion.color[2]))
 		religions[r] = religion
 	
+	# maybe add neighboring countries
 	for c in countries_json:
 		var country = countries_json[c]
 		country.color = Color8(int(country.color[0]), int(country.color[1]), int(country.color[2]))

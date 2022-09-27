@@ -11,6 +11,7 @@ var color_texture
 var mouse_pos := Vector2.ZERO
 
 func _ready():
+	Game.unit_move.connect(_unit_move)
 	Game.province_selected.connect(_update_selection)
 	Game.set_map_mode.connect(_set_map_mode)
 	lookup_image.create(texture.get_width(), texture.get_height(), false, Image.FORMAT_RGB8 | Image.INTERPOLATE_NEAREST)
@@ -78,3 +79,9 @@ func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.keycode == KEY_ESCAPE and event.pressed:
 			Game.province_selected.emit(null)
+
+func _unit_move(pos):
+	var color := map_image.get_pixelv(pos)
+	if color != Color.BLACK:
+		var province = Data.provinces[color]
+		print(province.id)

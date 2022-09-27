@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bj6r0bci8qs30"]
+[gd_scene load_steps=11 format=3 uid="uid://bj6r0bci8qs30"]
 
 [ext_resource type="Shader" path="res://gfx/shaders/map.gdshader" id="1_nikx4"]
 [ext_resource type="Script" path="res://scripts/map.gd" id="2_n3y1y"]
 [ext_resource type="Texture2D" uid="uid://b55bibaafhf24" path="res://map/map.bmp" id="2_o11yq"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_04i3x"]
+[ext_resource type="Script" path="res://scripts/unit.gd" id="4_8pyvb"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="4_ah6qn"]
 [ext_resource type="Theme" uid="uid://drka4h4teonns" path="res://gfx/res/theme.tres" id="5_n7eje"]
+[ext_resource type="Texture2D" uid="uid://dg2fm1bvd0r7a" path="res://gfx/troops/all.png" id="8_fp2pj"]
 [ext_resource type="Texture2D" uid="uid://by00guvuhqqgk" path="res://gfx/flags/WER.png" id="9_8nv21"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fe442"]
@@ -19,6 +21,20 @@ material = SubResource("ShaderMaterial_fe442")
 texture = ExtResource("2_o11yq")
 centered = false
 script = ExtResource("2_n3y1y")
+
+[node name="Unit" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 500.0
+offset_top = 500.0
+offset_right = 532.0
+offset_bottom = 532.0
+script = ExtResource("4_8pyvb")
+
+[node name="Sprite2d" type="Sprite2D" parent="Unit"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_fp2pj")
+centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -270,6 +286,7 @@ size_flags_vertical = 4
 text = "E"
 
 [node name="ProvPanel" type="Panel" parent="CanvasLayer/UI"]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
