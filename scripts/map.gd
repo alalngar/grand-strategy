@@ -80,8 +80,9 @@ func _unhandled_input(event):
 		if event.keycode == KEY_ESCAPE and event.pressed:
 			Game.province_selected.emit(null)
 
-func _unit_move(pos):
+func _unit_move(data, pos):
 	var color := map_image.get_pixelv(pos)
 	if color != Color.BLACK:
 		var province = Data.provinces[color]
-		print(province.id)
+		data.destination = province.id
+		data.in_move = data.origin != data.destination

@@ -19,6 +19,7 @@ var provinces := {}
 var countries := {}
 var buildings := {}
 var religions := {}
+var units := {}
 
 var pathfinding = AStar2D.new()
 
@@ -120,6 +121,7 @@ func _ready():
 		country.flag = load("res://gfx/flags/%s.png" % c)
 		if country.flag == null: country.flag = load("res://gfx/flags/default.png")
 		countries[c] = country
+		units[c] = []
 	
 	for p in provinces_json:
 		var province = provinces_json[p]
@@ -139,6 +141,14 @@ func _ready():
 		for province in provinces.values():
 			if province.owner.tag == country.tag:
 				country.provinces.append(province)
+	
+	units["CYD"].append({
+		"position": Vector2(352, 620),
+		"origin": 0,
+		"destination": 3,
+		"in_move": false,
+		"selected": false,
+	})
 
 func connect_points():
 	for province in provinces.values():

@@ -1,25 +1,23 @@
 extends Control
 
-var selected := false
+var data := {}
 
-func _ready():
-	Game.unit_selected.connect(_deselect)
-
-func _deselect():
-	selected = false
+func _process(delta):
+	if data.position != position:
+		position.x = data.position.x - 8.0
+		position.y = data.position.y - 8.0
 
 func _gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			Game.unit_selected.emit()
-			selected = true
+			data.selected = true
 
 func _unhandled_input(event):
-	if selected:
+	if data.selected:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 				var mouse_pos = get_global_mouse_position()
-				Game.unit_move.emit(mouse_pos)
+				Game.unit_move.emit(data, mouse_pos)
 
 # unit data
 # owner, province_id, origin, destination

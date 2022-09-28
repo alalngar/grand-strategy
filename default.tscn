@@ -1,13 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bj6r0bci8qs30"]
+[gd_scene load_steps=9 format=3 uid="uid://bj6r0bci8qs30"]
 
 [ext_resource type="Shader" path="res://gfx/shaders/map.gdshader" id="1_nikx4"]
 [ext_resource type="Script" path="res://scripts/map.gd" id="2_n3y1y"]
 [ext_resource type="Texture2D" uid="uid://b55bibaafhf24" path="res://map/map.bmp" id="2_o11yq"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="4_04i3x"]
-[ext_resource type="Script" path="res://scripts/unit.gd" id="4_8pyvb"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="4_ah6qn"]
 [ext_resource type="Theme" uid="uid://drka4h4teonns" path="res://gfx/res/theme.tres" id="5_n7eje"]
-[ext_resource type="Texture2D" uid="uid://dg2fm1bvd0r7a" path="res://gfx/troops/all.png" id="8_fp2pj"]
 [ext_resource type="Texture2D" uid="uid://by00guvuhqqgk" path="res://gfx/flags/WER.png" id="9_8nv21"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fe442"]
@@ -17,24 +15,12 @@ shader_parameter/selected_color = null
 [node name="World" type="Node2D"]
 
 [node name="Map" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_fe442")
+z_index = -1
 texture = ExtResource("2_o11yq")
 centered = false
 script = ExtResource("2_n3y1y")
-
-[node name="Unit" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 500.0
-offset_top = 500.0
-offset_right = 532.0
-offset_bottom = 532.0
-script = ExtResource("4_8pyvb")
-
-[node name="Sprite2d" type="Sprite2D" parent="Unit"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_fp2pj")
-centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -55,7 +41,6 @@ theme = ExtResource("5_n7eje")
 
 [node name="TopPanel" type="Panel" parent="CanvasLayer/UI"]
 custom_minimum_size = Vector2i(600, 0)
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -65,7 +50,6 @@ offset_bottom = 40.0
 grow_horizontal = 2
 
 [node name="Time" type="Panel" parent="CanvasLayer/UI/TopPanel"]
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -81,7 +65,6 @@ metadata/_edit_group_ = true
 
 [node name="HB" type="HBoxContainer" parent="CanvasLayer/UI/TopPanel/Time"]
 custom_minimum_size = Vector2i(90, 36)
-layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 95.0
@@ -90,7 +73,6 @@ alignment = 1
 
 [node name="Pause" type="Button" parent="CanvasLayer/UI/TopPanel/Time/HB"]
 custom_minimum_size = Vector2i(25, 25)
-layout_mode = 2
 offset_left = 6.0
 offset_top = 7.0
 offset_right = 31.0
@@ -102,7 +84,6 @@ text = "="
 
 [node name="Increase" type="Button" parent="CanvasLayer/UI/TopPanel/Time/HB"]
 custom_minimum_size = Vector2i(25, 25)
-layout_mode = 2
 offset_left = 35.0
 offset_top = 7.0
 offset_right = 60.0
@@ -114,7 +95,6 @@ text = "+"
 
 [node name="Decrease" type="Button" parent="CanvasLayer/UI/TopPanel/Time/HB"]
 custom_minimum_size = Vector2i(25, 25)
-layout_mode = 2
 offset_left = 64.0
 offset_top = 7.0
 offset_right = 89.0
@@ -126,7 +106,6 @@ text = "-"
 
 [node name="Date" type="Label" parent="CanvasLayer/UI/TopPanel/Time"]
 custom_minimum_size = Vector2i(100, 0)
-layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -140,7 +119,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="FlagBG" type="Panel" parent="CanvasLayer/UI/TopPanel"]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -151,7 +129,6 @@ grow_horizontal = 2
 
 [node name="Flag" type="TextureRect" parent="CanvasLayer/UI/TopPanel"]
 clip_contents = true
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -164,7 +141,6 @@ mouse_filter = 0
 texture = ExtResource("9_8nv21")
 
 [node name="HB1" type="HBoxContainer" parent="CanvasLayer/UI/TopPanel"]
-layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -176,7 +152,6 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer/UI/TopPanel/HB1"]
-layout_mode = 2
 offset_right = 83.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
@@ -186,7 +161,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="CanvasLayer/UI/TopPanel/HB1"]
-layout_mode = 2
 offset_left = 83.0
 offset_right = 166.0
 offset_bottom = 40.0
@@ -197,7 +171,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="CanvasLayer/UI/TopPanel/HB1"]
-layout_mode = 2
 offset_left = 166.0
 offset_right = 250.0
 offset_bottom = 40.0
@@ -208,7 +181,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HB2" type="HBoxContainer" parent="CanvasLayer/UI/TopPanel"]
-layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -223,7 +195,6 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Income" type="Label" parent="CanvasLayer/UI/TopPanel/HB2"]
-layout_mode = 2
 offset_right = 250.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
@@ -233,7 +204,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Buttons" type="Panel" parent="CanvasLayer/UI/TopPanel"]
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -247,7 +217,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="HB" type="HBoxContainer" parent="CanvasLayer/UI/TopPanel/Buttons"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -257,7 +226,6 @@ alignment = 1
 
 [node name="Button" type="Button" parent="CanvasLayer/UI/TopPanel/Buttons/HB"]
 custom_minimum_size = Vector2i(25, 25)
-layout_mode = 2
 offset_left = 6.0
 offset_top = 7.0
 offset_right = 31.0
@@ -267,7 +235,6 @@ text = "R"
 
 [node name="Button2" type="Button" parent="CanvasLayer/UI/TopPanel/Buttons/HB"]
 custom_minimum_size = Vector2i(25, 25)
-layout_mode = 2
 offset_left = 35.0
 offset_top = 7.0
 offset_right = 60.0
@@ -277,7 +244,6 @@ text = "L"
 
 [node name="Button3" type="Button" parent="CanvasLayer/UI/TopPanel/Buttons/HB"]
 custom_minimum_size = Vector2i(25, 25)
-layout_mode = 2
 offset_left = 64.0
 offset_top = 7.0
 offset_right = 89.0
@@ -287,7 +253,6 @@ text = "E"
 
 [node name="ProvPanel" type="Panel" parent="CanvasLayer/UI"]
 visible = false
-layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -297,7 +262,6 @@ grow_vertical = 0
 
 [node name="Name" type="Label" parent="CanvasLayer/UI/ProvPanel"]
 custom_minimum_size = Vector2i(0, 30)
-layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 26.0
@@ -307,7 +271,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VB" type="VBoxContainer" parent="CanvasLayer/UI/ProvPanel"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -319,7 +282,6 @@ alignment = 1
 
 [node name="Owner" type="Label" parent="CanvasLayer/UI/ProvPanel/VB"]
 custom_minimum_size = Vector2i(0, 30)
-layout_mode = 2
 offset_top = 34.0
 offset_right = 235.0
 offset_bottom = 64.0
@@ -329,7 +291,6 @@ vertical_alignment = 1
 
 [node name="Culture" type="Label" parent="CanvasLayer/UI/ProvPanel/VB"]
 custom_minimum_size = Vector2i(0, 30)
-layout_mode = 2
 offset_top = 68.0
 offset_right = 235.0
 offset_bottom = 98.0
@@ -340,7 +301,6 @@ vertical_alignment = 1
 
 [node name="Religion" type="Label" parent="CanvasLayer/UI/ProvPanel/VB"]
 custom_minimum_size = Vector2i(0, 30)
-layout_mode = 2
 offset_top = 102.0
 offset_right = 235.0
 offset_bottom = 132.0
@@ -350,7 +310,6 @@ vertical_alignment = 1
 
 [node name="Development" type="Label" parent="CanvasLayer/UI/ProvPanel/VB"]
 custom_minimum_size = Vector2i(0, 30)
-layout_mode = 2
 offset_top = 136.0
 offset_right = 235.0
 offset_bottom = 166.0
@@ -361,7 +320,6 @@ vertical_alignment = 1
 
 [node name="Control" type="Label" parent="CanvasLayer/UI/ProvPanel/VB"]
 custom_minimum_size = Vector2i(0, 30)
-layout_mode = 2
 offset_top = 170.0
 offset_right = 235.0
 offset_bottom = 200.0
@@ -370,7 +328,6 @@ text = "Control: 100"
 vertical_alignment = 1
 
 [node name="Close" type="Button" parent="CanvasLayer/UI/ProvPanel"]
-layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -380,7 +337,6 @@ grow_horizontal = 0
 text = "X"
 
 [node name="MapPanel" type="Panel" parent="CanvasLayer/UI"]
-layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -392,7 +348,6 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="HB" type="HBoxContainer" parent="CanvasLayer/UI/MapPanel"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -402,7 +357,6 @@ alignment = 1
 
 [node name="Nation" type="Button" parent="CanvasLayer/UI/MapPanel/HB"]
 custom_minimum_size = Vector2i(25, 25)
-layout_mode = 2
 offset_left = 3.0
 offset_top = 3.0
 offset_right = 28.0
@@ -413,7 +367,6 @@ text = "N"
 
 [node name="Religion" type="Button" parent="CanvasLayer/UI/MapPanel/HB"]
 custom_minimum_size = Vector2i(25, 25)
-layout_mode = 2
 offset_left = 32.0
 offset_top = 3.0
 offset_right = 57.0
@@ -424,7 +377,6 @@ text = "R"
 
 [node name="Culture" type="Button" parent="CanvasLayer/UI/MapPanel/HB"]
 custom_minimum_size = Vector2i(25, 25)
-layout_mode = 2
 offset_left = 61.0
 offset_top = 3.0
 offset_right = 86.0
