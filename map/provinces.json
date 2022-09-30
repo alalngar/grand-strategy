@@ -4,6 +4,7 @@
 		"owner": "OCE",
 		"development": 0,
 		"religion": "none",
+		"culture": "none",
 		"center": [0, 0]
 	},
 	"101": {
@@ -11,6 +12,7 @@
 		"owner": "LND",
 		"development": 0,
 		"religion": "none",
+		"culture": "none",
 		"center": [0, 0]
 	},
 	"0": {
@@ -18,6 +20,7 @@
 		"owner": "CYD",
 		"development": 10,
 		"religion": "ertu",
+		"culture": "goblin",
 		"center": [352, 620]
 	},
 	"1": {
@@ -25,6 +28,7 @@
 		"owner": "CYD",
 		"development": 10,
 		"religion": "ertu",
+		"culture": "goblin",
 		"center": [374, 613]
 	},
 	"2": {
@@ -32,6 +36,7 @@
 		"owner": "WER",
 		"development": 10,
 		"religion": "ertu",
+		"culture": "elf",
 		"center": [356, 586]
 	},
 	"3": {
@@ -39,6 +44,7 @@
 		"owner": "WER",
 		"development": 10,
 		"religion": "raylen",
+		"culture": "elf",
 		"center": [385, 579]
 	},
 	"4": {
@@ -46,6 +52,7 @@
 		"owner": "WER",
 		"development": 10,
 		"religion": "raylen",
+		"culture": "elf",
 		"center": [356, 561]
 	}
 }

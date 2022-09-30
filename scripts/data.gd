@@ -19,6 +19,7 @@ var provinces := {}
 var countries := {}
 var buildings := {}
 var religions := {}
+var cultures := {}
 var units := {}
 
 var pathfinding = AStar2D.new()
@@ -101,6 +102,10 @@ func _ready():
 	var religions_json = JSON.parse_string(file.get_as_text())
 	file.close()
 	
+	file.open("res://common/cultures.json", File.READ)
+	var cultures_json = JSON.parse_string(file.get_as_text())
+	file.close()
+	
 	for b in buildings_json:
 		var building = buildings_json[b]
 		building.cost = int(building.cost)
@@ -109,7 +114,14 @@ func _ready():
 	for r in religions_json:
 		var religion = religions_json[r]
 		religion.color = Color8(int(religion.color[0]), int(religion.color[1]), int(religion.color[2]))
+		religion.name = r
 		religions[r] = religion
+	
+	for r in cultures_json:
+		var culture = cultures_json[r]
+		culture.color = Color8(int(culture.color[0]), int(culture.color[1]), int(culture.color[2]))
+		culture.name = r
+		cultures[r] = culture
 	
 	# maybe add neighboring countries
 	for c in countries_json:
@@ -131,6 +143,7 @@ func _ready():
 		province.development = float(province.development)
 		province.center = Vector2i(int(province.center[0]), int(province.center[1]))
 		province.religion = religions[province.religion]
+		province.culture = cultures[province.culture]
 		province.buildings = []
 		province.neighbors = []
 		provinces[province.color] = province

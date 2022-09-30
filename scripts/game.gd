@@ -35,15 +35,16 @@ func _add_building(data):
 
 func _daily_tick():
 	for units in Data.units.values():
-		for unit in units:
-			if unit.in_move:
-				if unit.origin != unit.destination:
-					var id_path = Data.pathfinding.get_id_path(unit.origin, unit.destination)
-					var pos_path = Data.pathfinding.get_point_path(unit.origin, unit.destination)
-					unit.origin = id_path[1]
-					unit.position = pos_path[1]
-					if unit.origin == unit.destination:
-						unit.in_move = false
+		for n in range(units.size()):
+			if units[n].in_move:
+				if units[n].origin != units[n].destination:
+					var id_path = Data.pathfinding.get_id_path(units[n].origin, units[n].destination)
+					var pos_path = Data.pathfinding.get_point_path(units[n].origin, units[n].destination)
+					units[n].origin = id_path[1]
+					units[n].position = pos_path[1]
+					if units[n].origin == units[n].destination:
+						units[n].in_move = false
+					MPSync.unit_location(units[n], n, country)
 
 func _monthly_tick():
 	for tag in Data.countries:

@@ -11,6 +11,8 @@ extends CanvasLayer
 @onready var province_name_lbl := $UI/ProvPanel/Name
 @onready var province_owner_lbl := $UI/ProvPanel/VB/Owner
 @onready var province_control_lbl := $UI/ProvPanel/VB/Control
+@onready var province_religion_lbl := $UI/ProvPanel/VB/Religion
+@onready var province_culture_lbl := $UI/ProvPanel/VB/Culture
 @onready var province_dev_lbl := $UI/ProvPanel/VB/Development
 @onready var province_close_btn := $UI/ProvPanel/Close
 
@@ -51,6 +53,8 @@ func _update_prov(data):
 	province_name_lbl.text = tr("p%d" % data.id)
 	province_owner_lbl.text = "Owner: %s" % tr(data.owner.tag)
 	province_dev_lbl.text = "Development: %.0f" % data.development
+	province_religion_lbl.text = "Religion: %s" % data.religion.name
+	province_culture_lbl.text = "Culture: %s" % data.culture.name
 
 func _pause_timer():
 	# sync time pausing for other players

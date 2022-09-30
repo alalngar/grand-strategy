@@ -53,6 +53,7 @@ func _update_map_mode(id):
 		match id:
 			0: color = province.owner.color
 			1: color = province.religion.color
+			2: color = province.culture.color
 		color_image.set_pixel(province.id % 256, province.id / 256, color)
 	color_texture.update(color_image)
 
