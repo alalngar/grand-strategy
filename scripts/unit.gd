@@ -1,11 +1,18 @@
 extends Control
 
+var idx := -1
+var tag := ""
+
 var data := {}
 
 func _process(delta):
-	if data.position != position:
-		position.x = data.position.x - 8.0
-		position.y = data.position.y - 8.0
+	data = Data.units[tag][idx]
+	
+	var x = data.position.x - 8
+	var y = data.position.y - 8
+	if x != position.x or y != position.y:
+		position.x = x
+		position.y = y
 
 func _gui_input(event):
 	if event is InputEventMouseButton:

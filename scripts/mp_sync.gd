@@ -18,8 +18,8 @@ func province_buildings(prov):
 @rpc(any_peer) func _sync_province_buildings(color, buildings):
 	Data.provinces[color].buildings = buildings
 
-func unit_location(unit, position, country):
-	_sync_unit_location.rpc(country.tag, position, unit)
+func country_units(country):
+	_sync_country_units.rpc(country.tag, Data.units[country.tag])
 
-@rpc(any_peer) func _sync_unit_location(tag, position, unit):
-	Data.units[tag][position] = unit
+@rpc(any_peer) func _sync_country_units(tag, units):
+	Data.units[tag] = units
