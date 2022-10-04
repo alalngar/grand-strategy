@@ -75,6 +75,11 @@ func _unhandled_input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			var color := map_image.get_pixelv(mouse_pos)
 			if color != Color.BLACK:
+				#If province is not defined and dev mode is on call class to initalize province
+				if(!Data.provinces.has(color) && Data.dev_mode_state == true):
+					return
+				if(!Data.provinces.has(color)):
+					return
 				var province = Data.provinces[color]
 				Game.province_selected.emit(province)
 	if event is InputEventKey:

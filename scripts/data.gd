@@ -1,6 +1,7 @@
 extends Node
 
 var has_started := false
+var dev_mode_state := false
 const MULTIPLAYER_PORT = 56727
 
 signal daily_tick()

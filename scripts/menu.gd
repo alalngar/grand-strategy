@@ -13,6 +13,8 @@ extends Control
 @onready var lobby_button := $Lobby/Button
 @onready var lobby_country := $Lobby/Country
 
+@onready var dev_button := $Panel/VB/Button4
+var dev_mode := false
 func _ready():
 	for id in Data.countries:
 		lobby_country.add_item(tr(id))
@@ -21,9 +23,18 @@ func _ready():
 	menu_join.pressed.connect(_join_game)
 	menu_exit.pressed.connect(_exit)
 	lobby_button.pressed.connect(_start_game)
+	dev_button.pressed.connect(_dev_mode)
 	
 	multiplayer.connected_to_server.connect(_connected_to_server)
 	multiplayer.peer_connected.connect(_peer_connected)
+
+func _dev_mode():
+	if dev_mode == true:
+		dev_mode = false
+		dev_button.text = "Dev mode: Off"
+	elif dev_mode == false:
+		dev_mode = true
+		dev_button.text = "Dev mode: On"
 
 func _connected_to_server():
 	_add_label(str(multiplayer.get_unique_id()))
@@ -66,5 +77,6 @@ func _peer_start_game():
 	var country = Data.countries.values()[lobby_country.selected]
 	Game.country = country
 	Data.has_started = true
+	Data.dev_mode_state = dev_mode
 	Game.start()
 	get_tree().change_scene_to_packed(game_scene)
