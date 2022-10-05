@@ -26,7 +26,6 @@ current = true
 script = ExtResource("4_04i3x")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("4_ah6qn")
 
 [node name="UI" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -37,6 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("5_n7eje")
+script = ExtResource("4_ah6qn")
 
 [node name="TopPanel" type="Panel" parent="CanvasLayer/UI"]
 custom_minimum_size = Vector2i(600, 0)

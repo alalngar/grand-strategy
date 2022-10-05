@@ -1,32 +1,32 @@
-extends CanvasLayer
+extends Control
 
-@onready var flag_tex := $UI/TopPanel/Flag
-@onready var income_lbl := $UI/TopPanel/HB2/Income
-@onready var decrease_speed_btn := $UI/TopPanel/Time/HB/Decrease
-@onready var increase_speed_btn := $UI/TopPanel/Time/HB/Increase
-@onready var pause_time_btn := $UI/TopPanel/Time/HB/Pause
-@onready var date_lbl := $UI/TopPanel/Time/Date
+@onready var flag_tex := $TopPanel/Flag
+@onready var income_lbl := $TopPanel/HB2/Income
+@onready var decrease_speed_btn := $TopPanel/Time/HB/Decrease
+@onready var increase_speed_btn := $TopPanel/Time/HB/Increase
+@onready var pause_time_btn := $TopPanel/Time/HB/Pause
+@onready var date_lbl := $TopPanel/Time/Date
 
-@onready var province_panel := $UI/ProvPanel
-@onready var province_name_lbl := $UI/ProvPanel/Name
-@onready var province_owner_lbl := $UI/ProvPanel/VB/Owner
-@onready var province_control_lbl := $UI/ProvPanel/VB/Control
-@onready var province_religion_lbl := $UI/ProvPanel/VB/Religion
-@onready var province_culture_lbl := $UI/ProvPanel/VB/Culture
-@onready var province_dev_lbl := $UI/ProvPanel/VB/Development
-@onready var province_close_btn := $UI/ProvPanel/Close
+@onready var province_panel := $ProvPanel
+@onready var province_name_lbl := $ProvPanel/Name
+@onready var province_owner_lbl := $ProvPanel/VB/Owner
+@onready var province_control_lbl := $ProvPanel/VB/Control
+@onready var province_religion_lbl := $ProvPanel/VB/Religion
+@onready var province_culture_lbl := $ProvPanel/VB/Culture
+@onready var province_dev_lbl := $ProvPanel/VB/Development
+@onready var province_close_btn := $ProvPanel/Close
 
-@onready var nation_mode_btn := $UI/MapPanel/HB/Nation
-@onready var religion_mode_btn := $UI/MapPanel/HB/Religion
-@onready var culture_mode_btn := $UI/MapPanel/HB/Culture
+@onready var nation_mode_btn := $MapPanel/HB/Nation
+@onready var religion_mode_btn := $MapPanel/HB/Religion
+@onready var culture_mode_btn := $MapPanel/HB/Culture
 
-@onready var dev_prov_panel := $UI/DevPanel
-@onready var dev_create_prov_panel := $UI/DevPanel/CreatePov
-@onready var dev_prov_owner_led := $UI/DevPanel/VB/Owner
-@onready var dev_prov_religion_led := $UI/DevPanel/VB/Religion
-@onready var dev_prov_culture_led := $UI/DevPanel/VB/Culture
-@onready var dev_update_btn := $UI/DevPanel/VB/Update
-@onready var dev_create_btn := $"UI/DevPanel/CreatePov/VB/Create Province"
+@onready var dev_prov_panel := $DevPanel
+@onready var dev_create_prov_panel := $DevPanel/CreatePov
+@onready var dev_prov_owner_led := $DevPanel/VB/Owner
+@onready var dev_prov_religion_led := $DevPanel/VB/Religion
+@onready var dev_prov_culture_led := $DevPanel/VB/Culture
+@onready var dev_update_btn := $DevPanel/VB/Update
+@onready var dev_create_btn := $"DevPanel/CreatePov/VB/Create Province"
 
 var new_color
 var center_pos
