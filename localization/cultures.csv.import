@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://d0v32v4ka8yiq"
+
+[deps]
+
+files=["res://localization/cultures.en.translation"]
+
+source_file="res://localization/cultures.csv"
+dest_files=["res://localization/cultures.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

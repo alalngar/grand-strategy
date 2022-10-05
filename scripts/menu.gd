@@ -13,8 +13,8 @@ extends Control
 @onready var lobby_button := $Lobby/Button
 @onready var lobby_country := $Lobby/Country
 
-@onready var dev_button := $Panel/VB/Button4
-var dev_mode := false
+@onready var dev_mode := $DevMode
+
 func _ready():
 	for id in Data.countries:
 		lobby_country.add_item(tr(id))
@@ -23,18 +23,15 @@ func _ready():
 	menu_join.pressed.connect(_join_game)
 	menu_exit.pressed.connect(_exit)
 	lobby_button.pressed.connect(_start_game)
-	dev_button.pressed.connect(_dev_mode)
+	dev_mode.pressed.connect(_dev_mode)
 	
 	multiplayer.connected_to_server.connect(_connected_to_server)
 	multiplayer.peer_connected.connect(_peer_connected)
 
 func _dev_mode():
-	if dev_mode == true:
-		dev_mode = false
-		dev_button.text = "Dev mode: Off"
-	elif dev_mode == false:
-		dev_mode = true
-		dev_button.text = "Dev mode: On"
+	Data.dev_mode = true
+	_host_game()
+	_start_game()
 
 func _connected_to_server():
 	_add_label(str(multiplayer.get_unique_id()))
@@ -45,6 +42,8 @@ func _peer_connected(id):
 	_add_label(str(id))
 
 func _host_game():
+	dev_mode.visible = false
+	
 	var peer = ENetMultiplayerPeer.new()
 	peer.create_server(Data.MULTIPLAYER_PORT)
 	multiplayer.multiplayer_peer = peer
@@ -54,6 +53,8 @@ func _host_game():
 	lobby_panel.visible = true
 
 func _join_game():
+	dev_mode.visible = false
+	
 	var ip = menu_ip.text
 	if not ip.is_valid_ip_address(): return
 	var peer = ENetMultiplayerPeer.new()
@@ -77,6 +78,5 @@ func _peer_start_game():
 	var country = Data.countries.values()[lobby_country.selected]
 	Game.country = country
 	Data.has_started = true
-	Data.dev_mode_state = dev_mode
 	Game.start()
 	get_tree().change_scene_to_packed(game_scene)

@@ -1,7 +1,7 @@
 extends Node
 
 var has_started := false
-var dev_mode_state := false
+var dev_mode := false
 const MULTIPLAYER_PORT = 56727
 
 signal daily_tick()
@@ -85,27 +85,23 @@ func get_date_extended():
 	return "%d %s %d" % [day, _month, year]
 
 func _ready():
-	var file := File.new()
-	
-	file.open("res://map/provinces.json", File.READ)
+	_read_files()
+
+func _read_files():
+	var file = FileAccess.open("res://map/provinces.json", FileAccess.READ)
 	var provinces_json = JSON.parse_string(file.get_as_text())
-	file.close()
 	
-	file.open("res://map/countries.json", File.READ)
+	file = FileAccess.open("res://map/countries.json", FileAccess.READ)
 	var countries_json = JSON.parse_string(file.get_as_text())
-	file.close()
 	
-	file.open("res://common/buildings.json", File.READ)
+	file = FileAccess.open("res://common/buildings.json", FileAccess.READ)
 	var buildings_json = JSON.parse_string(file.get_as_text())
-	file.close()
 	
-	file.open("res://common/religions.json", File.READ)
+	file = FileAccess.open("res://common/religions.json", FileAccess.READ)
 	var religions_json = JSON.parse_string(file.get_as_text())
-	file.close()
 	
-	file.open("res://common/cultures.json", File.READ)
+	file = FileAccess.open("res://common/cultures.json", FileAccess.READ)
 	var cultures_json = JSON.parse_string(file.get_as_text())
-	file.close()
 	
 	for b in buildings_json:
 		var building = buildings_json[b]
@@ -163,6 +159,11 @@ func _ready():
 		"in_move": false,
 		"selected": false,
 	})
+
+# todo: make this update the Data.provinces
+# mainly for dev mode or maybe a console command
+func reload_prov_file():
+	pass
 
 func connect_points():
 	for province in provinces.values():

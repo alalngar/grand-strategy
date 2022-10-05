@@ -1,58 +1,107 @@
 {
-	"100": {
-		"color": [0, 0, 0],
-		"owner": "OCE",
-		"development": 0,
-		"religion": "none",
-		"culture": "none",
-		"center": [0, 0]
-	},
-	"101": {
-		"color": [255, 255, 255],
-		"owner": "LND",
-		"development": 0,
-		"religion": "none",
-		"culture": "none",
-		"center": [0, 0]
-	},
 	"0": {
-		"color": [150, 93, 191],
-		"owner": "CYD",
-		"development": 10,
-		"religion": "ertu",
+		"center": [
+			352,
+			620
+		],
+		"color": [
+			150,
+			93,
+			191
+		],
 		"culture": "goblin",
-		"center": [352, 620]
+		"development": 10,
+		"owner": "CYD",
+		"religion": "ertu"
 	},
 	"1": {
-		"color": [0, 148, 255],
-		"owner": "CYD",
-		"development": 10,
-		"religion": "ertu",
+		"center": [
+			374,
+			613
+		],
+		"color": [
+			0,
+			148,
+			255
+		],
 		"culture": "goblin",
-		"center": [374, 613]
+		"development": 10,
+		"owner": "CYD",
+		"religion": "ertu"
+	},
+	"100": {
+		"center": [
+			0,
+			0
+		],
+		"color": [
+			0,
+			0,
+			0
+		],
+		"culture": "none",
+		"development": 0,
+		"owner": "OCE",
+		"religion": "none"
+	},
+	"101": {
+		"center": [
+			0,
+			0
+		],
+		"color": [
+			255,
+			255,
+			255
+		],
+		"culture": "none",
+		"development": 0,
+		"owner": "LND",
+		"religion": "none"
 	},
 	"2": {
-		"color": [255, 22, 69],
-		"owner": "WER",
-		"development": 10,
-		"religion": "ertu",
+		"center": [
+			356,
+			586
+		],
+		"color": [
+			255,
+			22,
+			69
+		],
 		"culture": "elf",
-		"center": [356, 586]
+		"development": 10,
+		"owner": "WER",
+		"religion": "ertu"
 	},
 	"3": {
-		"color": [101, 191, 102],
-		"owner": "WER",
-		"development": 10,
-		"religion": "raylen",
+		"center": [
+			385,
+			579
+		],
+		"color": [
+			101,
+			191,
+			102
+		],
 		"culture": "elf",
-		"center": [385, 579]
+		"development": 10,
+		"owner": "WER",
+		"religion": "raylen"
 	},
 	"4": {
-		"color": [255, 216, 0],
-		"owner": "WER",
-		"development": 10,
-		"religion": "raylen",
+		"center": [
+			356,
+			561
+		],
+		"color": [
+			255,
+			216,
+			0
+		],
 		"culture": "elf",
-		"center": [356, 561]
+		"development": 10,
+		"owner": "WER",
+		"religion": "raylen"
 	}
 }
