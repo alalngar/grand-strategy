@@ -76,6 +76,7 @@ func _unhandled_input(event):
 			var color := map_image.get_pixelv(mouse_pos)
 			if color != Color.BLACK:
 				if(!Data.provinces.has(color)):
+					Game.province_selected_unknown.emit(color, mouse_pos)
 					return
 				var province = Data.provinces[color]
 				Game.province_selected.emit(province)

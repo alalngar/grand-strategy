@@ -1,4 +1,19 @@
 {
+	"16": {
+		"center": [
+			468.041198730469,
+			604.520080566406
+		],
+		"color": [
+			0,
+			19,
+			127
+		],
+		"culture": "none",
+		"development": 10,
+		"owner": "LND",
+		"religion": "none"
+	},
 	"0": {
 		"center": [
 			352,
@@ -29,34 +44,94 @@
 		"owner": "CYD",
 		"religion": "ertu"
 	},
-	"100": {
+	"10": {
 		"center": [
-			0,
+			436.780578613281,
+			623.315795898438
+		],
+		"color": [
+			91,
+			127,
 			0
+		],
+		"culture": "none",
+		"development": 10,
+		"owner": "CYD",
+		"religion": "none"
+	},
+	"11": {
+		"center": [
+			503.780578613281,
+			574.815795898438
+		],
+		"color": [
+			33,
+			0,
+			127
+		],
+		"culture": "none",
+		"development": 10,
+		"owner": "CYD",
+		"religion": "none"
+	},
+	"12": {
+		"center": [
+			465.354858398438,
+			570.749877929688
+		],
+		"color": [
+			72,
+			0,
+			255
+		],
+		"culture": "none",
+		"development": 10,
+		"owner": "CYD",
+		"religion": "none"
+	},
+	"13": {
+		"center": [
+			442.354858398438,
+			599.749877929688
 		],
 		"color": [
 			0,
+			127,
+			70
+		],
+		"culture": "none",
+		"development": 10,
+		"owner": "CYD",
+		"religion": "none"
+	},
+	"14": {
+		"center": [
+			492.854858398438,
+			605.999877929688
+		],
+		"color": [
+			127,
 			0,
 			0
 		],
 		"culture": "none",
-		"development": 0,
-		"owner": "OCE",
+		"development": 10,
+		"owner": "CYD",
 		"religion": "none"
 	},
-	"101": {
+	"15": {
 		"center": [
-			0,
-			0
+			485.604858398438,
+			581.999877929688
 		],
 		"color": [
-			255,
+			0,
 			255,
 			255
 		],
 		"culture": "none",
-		"development": 0,
-		"owner": "LND",
+		"development": 10,
+		"owner": "CYD",
 		"religion": "none"
 	},
 	"2": {
@@ -73,6 +148,21 @@
 		"development": 10,
 		"owner": "WER",
 		"religion": "ertu"
+	},
+	"2000": {
+		"center": [
+			0,
+			0
+		],
+		"color": [
+			0,
+			0,
+			0
+		],
+		"culture": "none",
+		"development": 0,
+		"owner": "OCE",
+		"religion": "none"
 	},
 	"3": {
 		"center": [
@@ -103,5 +193,80 @@
 		"development": 10,
 		"owner": "WER",
 		"religion": "raylen"
+	},
+	"5": {
+		"center": [
+			357.245788574219,
+			502.237731933594
+		],
+		"color": [
+			255,
+			255,
+			255
+		],
+		"culture": "none",
+		"development": 10,
+		"owner": "LND",
+		"religion": "none"
+	},
+	"6": {
+		"center": [
+			397.491790771484,
+			551.25048828125
+		],
+		"color": [
+			255,
+			0,
+			220
+		],
+		"culture": "none",
+		"development": 10,
+		"owner": "CYD",
+		"religion": "none"
+	},
+	"7": {
+		"center": [
+			417.291259765625,
+			563.03955078125
+		],
+		"color": [
+			182,
+			255,
+			0
+		],
+		"culture": "none",
+		"development": 10,
+		"owner": "CYD",
+		"religion": "none"
+	},
+	"8": {
+		"center": [
+			446.179809570313,
+			572.030395507813
+		],
+		"color": [
+			127,
+			106,
+			0
+		],
+		"culture": "none",
+		"development": 10,
+		"owner": "CYD",
+		"religion": "none"
+	},
+	"9": {
+		"center": [
+			462.179809570313,
+			651.36376953125
+		],
+		"color": [
+			255,
+			0,
+			110
+		],
+		"culture": "none",
+		"development": 10,
+		"owner": "CYD",
+		"religion": "none"
 	}
 }

@@ -21,16 +21,22 @@ extends CanvasLayer
 @onready var culture_mode_btn := $UI/MapPanel/HB/Culture
 
 @onready var dev_prov_panel := $UI/DevPanel
+@onready var dev_create_prov_panel := $UI/DevPanel/CreatePov
 @onready var dev_prov_owner_led := $UI/DevPanel/VB/Owner
 @onready var dev_prov_religion_led := $UI/DevPanel/VB/Religion
 @onready var dev_prov_culture_led := $UI/DevPanel/VB/Culture
 @onready var dev_update_btn := $UI/DevPanel/VB/Update
+@onready var dev_create_btn := $"UI/DevPanel/CreatePov/VB/Create Province"
+
+var new_color
+var center_pos
 
 func _ready():
 	_update_info()
 	flag_tex.texture = Game.country.flag
 	
 	Game.province_selected.connect(_update_prov)
+	Game.province_selected_unknown.connect(_update_prov_unknown)
 	Data.daily_tick.connect(_daily_tick)
 	province_close_btn.pressed.connect(func(): Game.province_selected.emit(null))
 	
@@ -38,6 +44,7 @@ func _ready():
 	increase_speed_btn.pressed.connect(_increase_speed)
 	decrease_speed_btn.pressed.connect(_decrease_speed)
 	dev_update_btn.pressed.connect(_update_dev_panel)
+	dev_create_btn.pressed.connect(_create_province)
 	
 	nation_mode_btn.pressed.connect(func(): Game.set_map_mode.emit(0))
 	religion_mode_btn.pressed.connect(func(): Game.set_map_mode.emit(1))
@@ -65,6 +72,7 @@ func _update_prov(data):
 	province_culture_lbl.text = "Culture: %s" % tr(data.culture.name)
 	if Data.dev_mode:
 		dev_prov_panel.visible = true
+		dev_create_prov_panel.visible = false
 		dev_prov_owner_led.text = data.owner.tag
 		dev_prov_culture_led.text = data.culture.name
 		dev_prov_religion_led.text = data.religion.name
@@ -85,12 +93,72 @@ func _update_dev_panel():
 	var provinces_json = JSON.parse_string(file.get_as_text())
 	
 	var prov = provinces_json[str(Game.selected_province.id)]
-	prov.owner = dev_prov_owner_led.text
-	prov.culture = dev_prov_culture_led.text
-	prov.religion = dev_prov_religion_led.text
 	
+	if(Data.religions.has(dev_prov_religion_led.text)):
+		prov.religion = dev_prov_religion_led.text
+	if(Data.cultures.has(dev_prov_culture_led.text)):
+		prov.culture = dev_prov_culture_led.text
+	if(Data.countries.has(dev_prov_owner_led.text)):
+		prov.owner = dev_prov_owner_led.text
 	file = FileAccess.open("res://map/provinces.json", FileAccess.WRITE)
 	file.store_line(JSON.stringify(provinces_json, "\t"))
+	#add a way to change center position through mouse input
 	
 	# add this
 	#Data.reload_prov_file()
+func _update_prov_unknown(color, mouse):
+	dev_prov_panel.visible = true
+	dev_create_prov_panel.visible = true
+	new_color = color
+	center_pos = mouse
+
+func _create_province():
+	var max_num = 0
+	var new_prov = {
+		"center": [],
+		"color": [],
+		"culture": "",
+		"development": 0,
+		"owner": "",
+		"religion": ""
+	}
+	var file := FileAccess.open("res://map/provinces.json", FileAccess.READ)
+	var provinces_json = JSON.parse_string(file.get_as_text())
+	if !Data.dev_mode && dev_create_prov_panel.visible == true:
+		return
+	#Checks for any duplicate colors already in provinces.json
+	for c in provinces_json:
+		if provinces_json[c].color[0] == new_color.r8:
+			if provinces_json[c].color[1] == new_color.g8:
+				if provinces_json[c].color[2] == new_color.b8:
+					dev_create_prov_panel.visible = false
+					print("Province already exists")
+					return
+	#Checks for max number in provinces ignoring ocean tiles (over 2000 id)
+	for p in provinces_json:
+		if p.to_int() < 2000:
+			if max_num < p.to_int():
+				max_num = p.to_int()
+	max_num += 1
+	if(Data.religions.has(dev_prov_religion_led.text)):
+		new_prov.religion = dev_prov_religion_led.text
+	else:
+		new_prov.religion = "none"
+	if(Data.religions.has(dev_prov_culture_led.text)):
+		new_prov.culture = dev_prov_culture_led.text
+	else:
+		new_prov.culture = "none"
+	if(Data.religions.has(dev_prov_owner_led.text)):
+		new_prov.owner = dev_prov_owner_led.text
+	else:
+		new_prov.owner = "LND"
+	new_prov.color = [new_color.r8, new_color.g8, new_color.b8]
+	new_prov.center = [center_pos.x, center_pos.y]
+	new_prov.development = 10
+	print(max_num)
+	provinces_json[max_num] = new_prov
+	file = FileAccess.open("res://map/provinces.json", FileAccess.WRITE)
+	file.store_line(JSON.stringify(provinces_json, "\t", true))
+	dev_prov_panel.visible = false
+	dev_create_prov_panel.visible = false
+	file = null

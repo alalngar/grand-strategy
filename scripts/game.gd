@@ -3,6 +3,7 @@ extends Node
 @onready var unit_scene := load("res://unit.tscn")
 
 signal province_selected(data)
+signal province_selected_unknown(data)
 signal build_building(data)
 signal unit_move(data, pos)
 signal set_map_mode(id)

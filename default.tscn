@@ -477,4 +477,65 @@ layout_mode = 2
 offset_top = 123.0
 offset_right = 190.0
 offset_bottom = 173.0
-text = "Update"
+text = "Update Province"
+
+[node name="CreatePov" type="Panel" parent="CanvasLayer/UI/DevPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -90.0
+offset_bottom = 90.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VB" type="VBoxContainer" parent="CanvasLayer/UI/DevPanel/CreatePov"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Owner" type="LineEdit" parent="CanvasLayer/UI/DevPanel/CreatePov/VB"]
+custom_minimum_size = Vector2i(0, 35)
+layout_mode = 2
+offset_top = 6.0
+offset_right = 190.0
+offset_bottom = 41.0
+auto_translate = false
+placeholder_text = " Owner"
+
+[node name="Culture" type="LineEdit" parent="CanvasLayer/UI/DevPanel/CreatePov/VB"]
+custom_minimum_size = Vector2i(0, 35)
+layout_mode = 2
+offset_top = 45.0
+offset_right = 190.0
+offset_bottom = 80.0
+auto_translate = false
+placeholder_text = " Culture
+"
+
+[node name="Religion" type="LineEdit" parent="CanvasLayer/UI/DevPanel/CreatePov/VB"]
+custom_minimum_size = Vector2i(0, 35)
+layout_mode = 2
+offset_top = 84.0
+offset_right = 190.0
+offset_bottom = 119.0
+auto_translate = false
+placeholder_text = " Religion"
+
+[node name="Create Province" type="Button" parent="CanvasLayer/UI/DevPanel/CreatePov/VB"]
+custom_minimum_size = Vector2i(15, 50)
+layout_mode = 2
+offset_top = 123.0
+offset_right = 190.0
+offset_bottom = 173.0
+text = "Create Province"
