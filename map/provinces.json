@@ -1,19 +1,4 @@
 {
-	"16": {
-		"center": [
-			468.041198730469,
-			604.520080566406
-		],
-		"color": [
-			0,
-			19,
-			127
-		],
-		"culture": "none",
-		"development": 10,
-		"owner": "LND",
-		"religion": "none"
-	},
 	"0": {
 		"center": [
 			352,
@@ -121,8 +106,23 @@
 	},
 	"15": {
 		"center": [
-			485.604858398438,
-			581.999877929688
+			468.666687011719,
+			601.166687011719
+		],
+		"color": [
+			0,
+			19,
+			127
+		],
+		"culture": "none",
+		"development": 10,
+		"owner": "LND",
+		"religion": "none"
+	},
+	"16": {
+		"center": [
+			485.666687011719,
+			582.5
 		],
 		"color": [
 			0,
@@ -131,7 +131,7 @@
 		],
 		"culture": "none",
 		"development": 10,
-		"owner": "CYD",
+		"owner": "LND",
 		"religion": "none"
 	},
 	"2": {

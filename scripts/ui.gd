@@ -16,6 +16,10 @@ extends Control
 @onready var province_dev_lbl := $ProvPanel/VB/Development
 @onready var province_close_btn := $ProvPanel/Close
 
+@onready var province_build_ui_open := $ProvPanel/BuildingButton
+@onready var province_build_ui_close := $ProvPanel/BuildingPanel/Close
+@onready var building_panel := $ProvPanel/BuildingPanel
+
 @onready var nation_mode_btn := $MapPanel/HB/Nation
 @onready var religion_mode_btn := $MapPanel/HB/Religion
 @onready var culture_mode_btn := $MapPanel/HB/Culture
@@ -27,6 +31,7 @@ extends Control
 @onready var dev_prov_culture_led := $DevPanel/VB/Culture
 @onready var dev_update_btn := $DevPanel/VB/Update
 @onready var dev_create_btn := $"DevPanel/CreatePov/VB/Create Province"
+
 
 var new_color
 var center_pos
@@ -45,6 +50,8 @@ func _ready():
 	decrease_speed_btn.pressed.connect(_decrease_speed)
 	dev_update_btn.pressed.connect(_update_dev_panel)
 	dev_create_btn.pressed.connect(_create_province)
+	province_build_ui_open.pressed.connect(_province_build_ui)
+	province_build_ui_close.pressed.connect(_province_build_ui)
 	
 	nation_mode_btn.pressed.connect(func(): Game.set_map_mode.emit(0))
 	religion_mode_btn.pressed.connect(func(): Game.set_map_mode.emit(1))
@@ -64,6 +71,8 @@ func _update_prov(data):
 		province_panel.visible = false
 		dev_prov_panel.visible = false
 		return
+	building_panel.visible = false
+	province_build_ui_open.visible = true
 	province_panel.visible = true
 	province_name_lbl.text = tr("p%d" % data.id)
 	province_owner_lbl.text = "Owner: %s" % tr(data.owner.tag)
@@ -88,7 +97,13 @@ func _increase_speed():
 func _decrease_speed():
 	Data.time_speed = clamp(Data.time_speed + 0.2, 0.0, 1.0)
 	
+func _province_build_ui():
+	province_build_ui_open.visible = !province_build_ui_open.visible
+	building_panel.visible = !building_panel.visible
+	return
+
 func _update_dev_panel():
+	
 	var file := FileAccess.open("res://map/provinces.json", FileAccess.READ)
 	var provinces_json = JSON.parse_string(file.get_as_text())
 	
@@ -140,25 +155,20 @@ func _create_province():
 			if max_num < p.to_int():
 				max_num = p.to_int()
 	max_num += 1
+	new_prov.religion = "none"
+	new_prov.culture = "none"
+	new_prov.owner = "LND"
 	if(Data.religions.has(dev_prov_religion_led.text)):
 		new_prov.religion = dev_prov_religion_led.text
-	else:
-		new_prov.religion = "none"
-	if(Data.religions.has(dev_prov_culture_led.text)):
+	if(Data.cultures.has(dev_prov_culture_led.text)):
 		new_prov.culture = dev_prov_culture_led.text
-	else:
-		new_prov.culture = "none"
-	if(Data.religions.has(dev_prov_owner_led.text)):
+	if(Data.countries.has(dev_prov_owner_led.text)):
 		new_prov.owner = dev_prov_owner_led.text
-	else:
-		new_prov.owner = "LND"
 	new_prov.color = [new_color.r8, new_color.g8, new_color.b8]
 	new_prov.center = [center_pos.x, center_pos.y]
 	new_prov.development = 10
-	print(max_num)
 	provinces_json[max_num] = new_prov
 	file = FileAccess.open("res://map/provinces.json", FileAccess.WRITE)
 	file.store_line(JSON.stringify(provinces_json, "\t", true))
 	dev_prov_panel.visible = false
 	dev_create_prov_panel.visible = false
-	file = null
