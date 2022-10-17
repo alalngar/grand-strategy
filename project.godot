@@ -11,20 +11,19 @@ config_version=5
 [application]
 
 config/name="grand-strategy"
-run/main_scene="res://menu.tscn"
-config/features=PackedStringArray("4.0")
+run/main_scene="res://root.tscn"
+config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Game="*res://scripts/game.gd"
 Data="*res://scripts/data.gd"
-MPSync="*res://scripts/mp_sync.gd"
+Game="*res://scripts/game.gd"
 
-[display]
+[gui]
 
-window/size/viewport_width=800
-window/size/viewport_height=600
+theme/default_font_multichannel_signed_distance_field=true
+theme/default_font_generate_mipmaps=true
 
 [input]
 
@@ -50,20 +49,11 @@ move_down={
 }
 zoom_in={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(351, 171),"global_position":Vector2(351, 171),"factor":1.0,"button_index":4,"pressed":true,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":8,"position":Vector2(288, 253),"global_position":Vector2(288, 253),"factor":1.0,"button_index":4,"pressed":true,"double_click":false,"script":null)
 ]
 }
 zoom_out={
 "deadzone": 0.5,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":16,"position":Vector2(206, 255),"global_position":Vector2(206, 255),"factor":1.0,"button_index":5,"pressed":true,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":5,"pressed":false,"double_click":false,"script":null)
 ]
 }
-
-[internationalization]
-
-locale/translations=PackedStringArray("res://localization/provinces.en.translation", "res://localization/buildings.en.translation", "res://localization/countries.en.translation", "res://localization/cultures.en.translation", "res://localization/religions.en.translation")
-
-[rendering]
-
-2d/snap/snap_2d_transforms_to_pixel=true
-2d/snap/snap_2d_vertices_to_pixel=true

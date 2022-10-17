@@ -1,7 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d40kh42c35vk"]
-
-[ext_resource type="Shader" path="res://gfx/shaders/map.gdshader" id="1_vfs4e"]
-
-[resource]
-shader = ExtResource("1_vfs4e")
-shader_parameter/selected_color = null
